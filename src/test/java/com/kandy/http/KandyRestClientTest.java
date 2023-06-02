@@ -54,7 +54,7 @@ public class KandyRestClientTest {
         public void testRequestWithExtension() {
                 Request request = new Request(
                                 HttpMethod.GET,
-                                Domains.API.toString(),
+                                Domains.API.toString().replace("kandy", "twilio"),
                                 URI);
                 kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(userAgentStringExtensions)
@@ -67,7 +67,7 @@ public class KandyRestClientTest {
         public void testRequestWithExtensionEmpty() {
                 Request request = new Request(
                                 HttpMethod.GET,
-                                Domains.API.toString(),
+                                Domains.API.toString().replace("kandy", "twilio"),
                                 URI);
                 kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(Collections.emptyList())
@@ -80,7 +80,7 @@ public class KandyRestClientTest {
         public void testRequestWithExtensionNull() {
                 Request request = new Request(
                                 HttpMethod.GET,
-                                Domains.API.toString(),
+                                Domains.API.toString().replace("kandy", "twilio"),
                                 URI);
                 kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(null)
