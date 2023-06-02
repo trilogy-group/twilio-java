@@ -1,6 +1,6 @@
 package com.kandy.http;
 
-import com.kandy.rest.Domains;
+import com.twilio.rest.Domains;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

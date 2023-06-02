@@ -1,7 +1,7 @@
 package com.kandy.http;
 
 import com.kandy.exception.ApiException;
-import com.kandy.rest.Domains;
+import com.twilio.rest.Domains;
 import java.time.ZonedDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;

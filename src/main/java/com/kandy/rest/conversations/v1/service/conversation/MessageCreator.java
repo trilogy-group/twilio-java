@@ -22,7 +22,7 @@ import com.kandy.http.HttpMethod;
 import com.kandy.http.Request;
 import com.kandy.http.Response;
 import com.kandy.http.KandyRestClient;
-import com.kandy.rest.Domains;
+import com.twilio.rest.Domains;
 import java.time.ZonedDateTime;
 
 public class MessageCreator extends Creator<Message> {
