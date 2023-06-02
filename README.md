@@ -228,7 +228,7 @@ Kandy.setRegion("au1");
 Kandy.setEdge("sydney");
 ```
 
-This will result in the `hostname` transforming from `api.twilio.com` to `api.sydney.au1.kandy.com`.
+This will result in the `hostname` transforming from `api.twilio.com` to `api.sydney.au1.twilio.com`.
 
 ### Enable Debug Logging
 

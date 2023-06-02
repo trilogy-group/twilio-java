@@ -231,45 +231,45 @@ public class RequestTest {
         assertUrlsEqual(new URL("https://api.twilio.com"), request.constructURL());
 
         request.setRegion("region");
-        assertUrlsEqual(new URL("https://api.region.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.region.twilio.com"), request.constructURL());
 
         request.setEdge("edge");
-        assertUrlsEqual(new URL("https://api.edge.region.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.edge.region.twilio.com"), request.constructURL());
 
         request.setRegion(null);
-        assertUrlsEqual(new URL("https://api.edge.us1.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.edge.us1.twilio.com"), request.constructURL());
     }
 
     @Test
     public void testRegionInUrl() throws MalformedURLException {
-        final Request request = new Request(HttpMethod.GET, "https://api.urlRegion.kandy.com");
+        final Request request = new Request(HttpMethod.GET, "https://api.urlRegion.twilio.com");
 
-        assertUrlsEqual(new URL("https://api.urlRegion.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.urlRegion.twilio.com"), request.constructURL());
 
         request.setRegion("region");
-        assertUrlsEqual(new URL("https://api.region.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.region.twilio.com"), request.constructURL());
 
         request.setEdge("edge");
-        assertUrlsEqual(new URL("https://api.edge.region.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.edge.region.twilio.com"), request.constructURL());
 
         request.setRegion(null);
-        assertUrlsEqual(new URL("https://api.edge.urlRegion.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.edge.urlRegion.twilio.com"), request.constructURL());
     }
 
     @Test
     public void testRegionAndEdgeInUrl() throws MalformedURLException {
-        final Request request = new Request(HttpMethod.GET, "https://api.urlEdge.urlRegion.kandy.com");
+        final Request request = new Request(HttpMethod.GET, "https://api.urlEdge.urlRegion.twilio.com");
 
-        assertUrlsEqual(new URL("https://api.urlEdge.urlRegion.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.urlEdge.urlRegion.twilio.com"), request.constructURL());
 
         request.setRegion("region");
-        assertUrlsEqual(new URL("https://api.urlEdge.region.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.urlEdge.region.twilio.com"), request.constructURL());
 
         request.setEdge("edge");
-        assertUrlsEqual(new URL("https://api.edge.region.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.edge.region.twilio.com"), request.constructURL());
 
         request.setRegion(null);
-        assertUrlsEqual(new URL("https://api.edge.urlRegion.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.edge.urlRegion.twilio.com"), request.constructURL());
     }
 
     @Test
