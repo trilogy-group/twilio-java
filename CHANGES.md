@@ -1814,10 +1814,6 @@
 - Added optional `label` property for conference participants
 - Added optional parameter `caller_id` for creating conference participant endpoint.
 
-**Autopilot**
-
-- Remove Export resource from Autopilot Assistant
-
 **Conversations**
 
 - Expose Conversation timers
@@ -1864,10 +1860,6 @@
 **Api**
 
 - Added `pstnconnectivity` to `usage_record` API
-
-**Autopilot**
-
-- Add dialogue_sid param to Query list resource
 
 **Notify**
 
@@ -1937,10 +1929,6 @@
 - Add optional `emergency_caller_sid` parameter to SIP Domain
 - Updated `call_reason` optional property to be treated as PII
 - Added optional BYOC Trunk Sid property to Sip Domain API resource
-
-**Autopilot**
-
-- Add Restore resource to Autopilot Assistant
 
 **Contacts**
 
@@ -2180,10 +2168,6 @@
 
 - Added support for push factors
 
-**Autopilot**
-
-- Add one new property in Query i.e dialogue_sid
-
 **Verify**
 
 - Add `SendCodeAttempts` to create verification response.
@@ -2342,10 +2326,6 @@
 
 - Make `persistent_action` parameter public
 - Add `twiml` optional private parameter for call create
-
-**Autopilot**
-
-- Add Export resource to Autopilot Assistant.
 
 **Flex**
 
@@ -2584,10 +2564,6 @@
 
 - [PR #464](https://github.com/kandy/kandy-java/pull/464): Add [archunit] rules. Thanks to [@sullis](https://github.com/sullis)!
 
-**Autopilot**
-
-- Adds two new properties in Assistant i.e needs_model_build and development_stage
-
 **Preview**
 
 - Changed phone numbers from _URL|Path_ to `X-XCNAM-Sensitive` headers **(breaking change)**
@@ -2597,10 +2573,6 @@
 - Add `MessagingConfiguration` resource to verify service
 
 ## [2019-06-12] Version 7.39.0
-
-**Autopilot**
-
-- Add Webhooks resource to Autopilot Assistant.
 
 **Flex**
 
@@ -2973,10 +2945,6 @@
 - Dropped support for `FactorType` param given new Factor prefixes **(breaking change)**
 - Supported `DELETE` actions for Authy resources
 - Move Authy Services resources to `authy` subdomain
-
-**Autopilot**
-
-- Introduce `autopilot` subdomain with all resources from `preview.understand`
 
 **Preview**
 

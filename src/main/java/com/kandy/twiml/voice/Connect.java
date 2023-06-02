@@ -139,15 +139,6 @@ public class Connect extends TwiML {
         }
 
         /**
-         * Add a child {@code <Autopilot>} element
-         */
-        @JacksonXmlProperty(isAttribute = false, localName = "Autopilot")
-        public Builder autopilot(Autopilot autopilot) {
-            this.children.add(autopilot);
-            return this;
-        }
-
-        /**
          * Add a child {@code <Stream>} element
          */
         @JacksonXmlProperty(isAttribute = false, localName = "Stream")

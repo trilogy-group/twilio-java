@@ -63,8 +63,6 @@ public class ConnectTest {
 
         builder.room(new Room.Builder("name").participantIdentity("participant_identity").build());
 
-        builder.autopilot(new Autopilot.Builder("name").build());
-
         builder.stream(new Stream.Builder()
                 .name("name")
                 .connectorName("connector_name")
@@ -105,7 +103,6 @@ public class ConnectTest {
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
                         "<Connect>" +
                         "<Room participantIdentity=\"participant_identity\">name</Room>" +
-                        "<Autopilot>name</Autopilot>" +
                         "<Stream connectorName=\"connector_name\" name=\"name\" statusCallback=\"status_callback\" statusCallbackMethod=\"GET\" track=\"inbound_track\" url=\"url\"/>"
                         +
                         "<VirtualAgent connectorName=\"connector_name\" language=\"language\" sentimentAnalysis=\"true\" statusCallback=\"status_callback\" statusCallbackMethod=\"GET\"/>"
@@ -206,8 +203,6 @@ public class ConnectTest {
 
         builder.room(new Room.Builder("name").participantIdentity("participant_identity").build());
 
-        builder.autopilot(new Autopilot.Builder("name").build());
-
         builder.stream(new Stream.Builder()
                 .name("name")
                 .connectorName("connector_name")
@@ -247,7 +242,6 @@ public class ConnectTest {
         Assert.assertEquals(
                 Connect.Builder.fromXml("<Connect>" +
                         "<Room participantIdentity=\"participant_identity\">name</Room>" +
-                        "<Autopilot>name</Autopilot>" +
                         "<Stream connectorName=\"connector_name\" name=\"name\" statusCallback=\"status_callback\" statusCallbackMethod=\"GET\" track=\"inbound_track\" url=\"url\"/>"
                         +
                         "<VirtualAgent connectorName=\"connector_name\" language=\"language\" sentimentAnalysis=\"true\" statusCallback=\"status_callback\" statusCallbackMethod=\"GET\"/>"
