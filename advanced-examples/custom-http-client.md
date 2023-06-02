@@ -26,10 +26,10 @@ Once you have your own `TwilioRestClient`, you can pass it to any Twilio REST AP
 
 ```java
 // Install the Java helper library from twilio.com/docs/java/install
-import com.twilio.Twilio;
-import com.twilio.http.TwilioRestClient;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
+import com.kandy.Twilio;
+import com.kandy.http.TwilioRestClient;
+import com.kandy.rest.api.v2010.account.Message;
+import com.kandy.type.PhoneNumber;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class Example {
@@ -67,20 +67,20 @@ public class Example {
 
 ## Create your custom TwilioRestClient
 
-When you take a closer look at the constructor for `TwilioRestClient`, you see that the `httpClient` parameter is actually of type `com.twilio.http.HttpClient`.
+When you take a closer look at the constructor for `TwilioRestClient`, you see that the `httpClient` parameter is actually of type `com.kandy.http.HttpClient`.
 
 `HttpClient` is an abstraction that allows plugging in any implementation of an HTTP client you want (or even creating a mocking layer for unit testing).
 
-However, within the helper library, there is an implementation of `com.twilio.http.HttpClient` called `NetworkHttpClient`. This class wraps the `org.apache.http.client.HttpClient` and provides it to the Twilio helper library to make the necessary HTTP requests.
+However, within the helper library, there is an implementation of `com.kandy.http.HttpClient` called `NetworkHttpClient`. This class wraps the `org.apache.http.client.HttpClient` and provides it to the Twilio helper library to make the necessary HTTP requests.
 
 ## Call Twilio through the proxy server
 
 Now that we understand how all the components fit together, we can create our own `TwilioRestClient` that can connect through a proxy server. To make this reusable, here’s a class that you can use to create this `TwilioRestClient` whenever you need one:
 
 ```java
-import com.twilio.http.HttpClient;
-import com.twilio.http.NetworkHttpClient;
-import com.twilio.http.TwilioRestClient;
+import com.kandy.http.HttpClient;
+import com.kandy.http.NetworkHttpClient;
+import com.kandy.http.TwilioRestClient;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -115,7 +115,7 @@ public class ProxiedTwilioClientCreator {
 
   /**
    * Creates a custom HttpClient based on default config as seen on:
-   * {@link com.twilio.http.NetworkHttpClient#NetworkHttpClient() constructor}
+   * {@link com.kandy.http.NetworkHttpClient#NetworkHttpClient() constructor}
    */
   private void createHttpClient() {
     RequestConfig config = RequestConfig
@@ -178,10 +178,10 @@ Here’s a console program that sends a text message and shows how it all can wo
 
 ```java
 // Install the Java helper library from twilio.com/docs/java/install
-import com.twilio.Twilio;
-import com.twilio.http.TwilioRestClient;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
+import com.kandy.Twilio;
+import com.kandy.http.TwilioRestClient;
+import com.kandy.rest.api.v2010.account.Message;
+import com.kandy.type.PhoneNumber;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class Example {

@@ -5,14 +5,14 @@
  *       /       /
  */
 
-package com.twilio.twiml;
+package com.kandy.twiml;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.twilio.twiml.TwiMLException;
-import com.twilio.twiml.fax.Receive;
+import com.kandy.twiml.TwiMLException;
+import com.kandy.twiml.fax.Receive;
 
 /**
  * TwiML wrapper for {@code <Response>}

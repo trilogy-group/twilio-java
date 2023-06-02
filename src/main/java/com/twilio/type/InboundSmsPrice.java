@@ -1,9 +1,9 @@
-package com.twilio.type;
+package com.kandy.type;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.twilio.converter.Promoter;
+import com.kandy.converter.Promoter;
 import lombok.ToString;
 
 import java.util.Objects;

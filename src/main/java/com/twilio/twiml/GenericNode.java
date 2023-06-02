@@ -1,4 +1,4 @@
-package com.twilio.twiml;
+package com.kandy.twiml;
 
 
 public class GenericNode extends TwiML {

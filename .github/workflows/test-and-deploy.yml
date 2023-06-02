@@ -1,13 +1,13 @@
 name: Test and Deploy
 on:
   push:
-    branches: [ '*' ]
-    tags: [ '*' ]
+    branches: ["*"]
+    tags: ["*"]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   schedule:
     # Run automatically at 8AM PST Monday-Friday
-    - cron: '0 15 * * 1-5'
+    - cron: "0 15 * * 1-5"
   workflow_dispatch:
 
 jobs:
@@ -17,19 +17,19 @@ jobs:
     timeout-minutes: 20
     strategy:
       matrix:
-        java: [ 8, 11, 17 ]
+        java: [8, 11, 17]
     steps:
       - name: Checkout twilio-java
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: "temurin"
           java-version: ${{ matrix.java }}
-          cache: 'maven'
+          cache: "maven"
 
       - name: Cache SonarCloud packages
         uses: actions/cache@v3
@@ -50,19 +50,19 @@ jobs:
           TWILIO_API_SECRET: ${{ secrets.TWILIO_CLUSTER_TEST_API_KEY_SECRET }}
           TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}
           TWILIO_TO_NUMBER: ${{ secrets.TWILIO_TO_NUMBER }}
-        run:  mvn test -DTest="ClusterTest" -B
+        run: mvn test -DTest="ClusterTest" -B
 
       - name: SonarCloud Scan
         if: ${{ (github.event_name == 'pull_request' || github.ref_type == 'branch') && matrix.java == 11 && !github.event.pull_request.head.repo.fork }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=twilio_twilio-java
 
   deploy:
     name: Deploy
     if: success() && github.ref_type == 'tag'
-    needs: [ test ]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout twilio-java
@@ -83,7 +83,7 @@ jobs:
       - name: Create GitHub Release
         uses: sendgrid/dx-automator/actions/release@main
         with:
-          footer: '**[Maven](https://mvnrepository.com/artifact/com.twilio.sdk/twilio/${version})**'
+          footer: "**[Maven](https://mvnrepository.com/artifact/com.kandy.sdk/twilio/${version})**"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -117,13 +117,13 @@ jobs:
   notify-on-failure:
     name: Slack notify on failure
     if: failure() && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref_type == 'tag')
-    needs: [ test, deploy ]
+    needs: [test, deploy]
     runs-on: ubuntu-latest
     steps:
       - uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_COLOR: failure
-          SLACK_ICON_EMOJI: ':github:'
+          SLACK_ICON_EMOJI: ":github:"
           SLACK_MESSAGE: ${{ format('Test *{0}*, Deploy *{1}*, {2}/{3}/actions/runs/{4}', needs.test.result, needs.deploy.result, github.server_url, github.repository, github.run_id) }}
           SLACK_TITLE: Action Failure - ${{ github.repository }}
           SLACK_USERNAME: GitHub Actions

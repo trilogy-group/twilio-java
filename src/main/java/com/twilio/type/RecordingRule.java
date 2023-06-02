@@ -1,4 +1,4 @@
-package com.twilio.type;
+package com.kandy.type;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

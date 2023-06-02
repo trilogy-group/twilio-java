@@ -1,7 +1,7 @@
 # twilio-java
 
 [![Tests](https://github.com/twilio/twilio-java/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/twilio/twilio-java/actions/workflows/test-and-deploy.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/com.twilio.sdk/twilio.svg)](https://mvnrepository.com/artifact/com.twilio.sdk/twilio)
+[![Maven Central](https://img.shields.io/maven-central/v/com.kandy.sdk/twilio.svg)](https://mvnrepository.com/artifact/com.kandy.sdk/twilio)
 [![Learn with TwilioQuest](https://img.shields.io/static/v1?label=TwilioQuest&message=Learn%20to%20contribute%21&color=F22F46&labelColor=1f243c&style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAASFBMVEUAAAAZGRkcHBwjIyMoKCgAAABgYGBoaGiAgICMjIyzs7PJycnMzMzNzc3UoBfd3d3m5ubqrhfrMEDu7u739/f4vSb/3AD///9tbdyEAAAABXRSTlMAAAAAAMJrBrEAAAKoSURBVHgB7ZrRcuI6EESdyxXGYoNFvMD//+l2bSszRgyUYpFAsXOeiJGmj4NkuWx1Qeh+Ekl9DgEXOBwOx+Px5xyQhDykfgq4wG63MxxaR4ddIkg6Ul3g84vCIcjPBA5gmUMeXESrlukuoK33+33uID8TWeLAdOWsKpJYzwVMB7bOzYSGOciyUlXSn0/ABXTosJ1M1SbypZ4O4MbZuIDMU02PMbauhhHMHXbmebmALIiEbbbbbUrpF1gwE9kFfRNAJaP+FQEXCCTGyJ4ngDrjOFo3jEL5JdqjF/pueR4cCeCGgAtwmuRS6gDwaRiGvu+DMFwSBLTE3+jF8JyuV1okPZ+AC4hDFhCHyHQjdjPHUKFDlHSJkHQXMB3KpSwXNGJPcwwTdZiXlRN0gSp0zpWxNtM0beYE0nRH6QIbO7rawwXaBYz0j78gxjokDuv12gVeUuBD0MDi0OQCLvDaAho4juP1Q/jkAncXqIcCfd+7gAu4QLMACCLxpRsSuQh0igu0C9Svhi7weAGZg50L3IE3cai4IfkNZAC8dfdhsUD3CgKBVC9JE5ABAFzg4QL/taYPAAWrHdYcgfLaIgAXWJ7OV38n1LEF8tt2TH29E+QAoDoO5Ve/LtCQDmKM9kPbvCEBApK+IXzbcSJ0cIGF6e8gpcRhUDogWZ8JnaWjPXc/fNnBBUKRngiHgTUSivSzDRDgHZQOLvBQgf8rRt+VdBUUhwkU6VpJ+xcOwQUqZr+mR0kvBUgv6cB4+37hQAkXqE8PwGisGhJtN4xAHMzrsgvI7rccXqSvKh6jltGlrOHA3Xk1At3LC4QiPdX9/0ndHpGVvTjR4bZA1ypAKgVcwE5vx74ulwIugDt8e/X7JgfkucBMIAr26ndnB4UCLnDOqvteQsHlgX9N4A+c4cW3DXSPbwAAAABJRU5ErkJggg==)](https://twil.io/learn-open-source)
 
 ## Documentation
@@ -33,13 +33,13 @@ For Java 7 support, use `twilio-java` major version `7.X.X`.
 
 ## Installation
 
-`twilio-java` uses Maven. At present the jars _are_ available from a public [maven](https://mvnrepository.com/artifact/com.twilio.sdk/twilio) repository.
+`twilio-java` uses Maven. At present the jars _are_ available from a public [maven](https://mvnrepository.com/artifact/com.kandy.sdk/twilio) repository.
 
 Use the following dependency in your project to grab via Maven:
 
 ```xml
 <dependency>
-  <groupId>com.twilio.sdk</groupId>
+  <groupId>com.kandy.sdk</groupId>
   <artifactId>twilio</artifactId>
   <version>9.X.X</version>
   <scope>compile</scope>
@@ -49,7 +49,7 @@ Use the following dependency in your project to grab via Maven:
 or Gradle:
 
 ```groovy
-implementation "com.twilio.sdk:twilio:9.X.X"
+implementation "com.kandy.sdk:twilio:9.X.X"
 ```
 
 If you want to compile it yourself, here's how:
@@ -77,9 +77,9 @@ mvn package -Dmaven.test.skip=true
 Try sending yourself an SMS message, like this:
 
 ```java
-import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
+import com.kandy.Twilio;
+import com.kandy.rest.api.v2010.account.Message;
+import com.kandy.type.PhoneNumber;
 
 public class Example {
 
@@ -111,8 +111,8 @@ public class Example {
 ### Initialize the Client
 
 ```java
-import com.twilio.Twilio;
-import com.twilio.exception.AuthenticationException;
+import com.kandy.Twilio;
+import com.kandy.exception.AuthenticationException;
 
 public class Example {
 
@@ -140,9 +140,9 @@ If using these variables, the above client initialization can be skipped.
 ### Make a Call
 
 ```java
-import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Call;
-import com.twilio.type.PhoneNumber;
+import com.kandy.Twilio;
+import com.kandy.rest.api.v2010.account.Call;
+import com.kandy.type.PhoneNumber;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -170,8 +170,8 @@ public class Example {
 ### Get an existing Call
 
 ```java
-import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Call;
+import com.kandy.Twilio;
+import com.kandy.rest.api.v2010.account.Call;
 
 public class Example {
 
@@ -197,9 +197,9 @@ For more information, view the [auto-generated library docs](https://www.twilio.
 #### Use the `read` method
 
 ```java
-import com.twilio.Twilio;
-import com.twilio.base.ResourceSet;
-import com.twilio.rest.api.v2010.account.Call;
+import com.kandy.Twilio;
+import com.kandy.base.ResourceSet;
+import com.kandy.rest.api.v2010.account.Call;
 
 public class Example {
 
@@ -249,7 +249,7 @@ For example, if you are using `log4j`:
       </Appenders>
       <Loggers>
           <!--Your Twilio logging configuration goes here-->
-          <Logger name="com.twilio.http" level="debug" additivity="false">
+          <Logger name="com.kandy.http" level="debug" additivity="false">
               <AppenderRef ref="Console"/>
           </Logger>
           <Root level="info">
@@ -262,7 +262,7 @@ For example, if you are using `log4j`:
 ### Handle Exceptions
 
 ```java
-import com.twilio.exception.ApiException;
+import com.kandy.exception.ApiException;
 
 try {
     Message message = Message.creator(

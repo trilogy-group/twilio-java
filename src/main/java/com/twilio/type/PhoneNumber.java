@@ -1,4 +1,4 @@
-package com.twilio.type;
+package com.kandy.type;
 
 import java.util.Objects;
 import java.net.URLEncoder;

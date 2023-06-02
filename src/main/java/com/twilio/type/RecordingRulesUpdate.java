@@ -1,4 +1,4 @@
-package com.twilio.type;
+package com.kandy.type;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -34,7 +34,7 @@ public class RecordingRulesUpdate {
         public boolean equals(final Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            final com.twilio.type.RecordingRulesUpdate that = (com.twilio.type.RecordingRulesUpdate) o;
+            final com.kandy.type.RecordingRulesUpdate that = (com.kandy.type.RecordingRulesUpdate) o;
             return Objects.equals(getRules(), that.getRules());
         }
 
