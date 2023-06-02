@@ -1,6 +1,6 @@
 package com.kandy.http;
 
-import com.twilio.rest.Domains;
+import com.kandy.rest.Domains;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -54,7 +54,7 @@ public class KandyRestClientTest {
         public void testRequestWithExtension() {
                 Request request = new Request(
                                 HttpMethod.GET,
-                                "api.twilio.com",
+                                Domains.API.toString(),
                                 URI);
                 kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(userAgentStringExtensions)
@@ -67,7 +67,7 @@ public class KandyRestClientTest {
         public void testRequestWithExtensionEmpty() {
                 Request request = new Request(
                                 HttpMethod.GET,
-                                "api.twilio.com",
+                                Domains.API.toString(),
                                 URI);
                 kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(Collections.emptyList())
@@ -80,7 +80,7 @@ public class KandyRestClientTest {
         public void testRequestWithExtensionNull() {
                 Request request = new Request(
                                 HttpMethod.GET,
-                                "api.twilio.com",
+                                Domains.API.toString(),
                                 URI);
                 kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(null)

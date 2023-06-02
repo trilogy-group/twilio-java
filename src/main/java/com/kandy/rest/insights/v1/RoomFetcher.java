@@ -22,7 +22,7 @@ import com.kandy.http.HttpMethod;
 import com.kandy.http.Request;
 import com.kandy.http.Response;
 import com.kandy.http.KandyRestClient;
-import com.twilio.rest.Domains;
+import com.kandy.rest.Domains;
 
 public class RoomFetcher extends Fetcher<Room> {
     private String pathRoomSid;

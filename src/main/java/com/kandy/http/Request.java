@@ -76,7 +76,7 @@ public class Request {
             final String uri,
             final String region) {
         this.method = method;
-        this.url = "https://" + domain + ".kandy.com" + uri;
+        this.url = "https://" + domain + ".twilio.com" + uri;
         this.region = region;
         this.queryParams = new HashMap<>();
         this.postParams = new HashMap<>();

@@ -8,7 +8,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-package com.twilio.rest;
+package com.kandy.rest;
 
 public enum Domains {
     ACCOUNTS("accounts"),
