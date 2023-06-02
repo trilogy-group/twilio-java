@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/api/pricing/messaging>Message Pricing
+ * <a href=https://www.kandy.com/docs/api/pricing/messaging>Message Pricing
  * Docs</a>
  * </p>
  */

@@ -6,12 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Grant used to access Twilio Voice
+ * Grant used to access Kandy Voice
  *
  * <p>
  * For more information see:
- * <a href="https://www.twilio.com/docs/api/rest/access-tokens">
- * https://www.twilio.com/docs/api/rest/access-tokens
+ * <a href="https://www.kandy.com/docs/api/rest/access-tokens">
+ * https://www.kandy.com/docs/api/rest/access-tokens
  * </a>
  * </p>
  */

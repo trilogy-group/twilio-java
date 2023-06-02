@@ -3,12 +3,12 @@ package com.kandy.jwt.accesstoken;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
- * Grant used to access Twilio TaskRouter.
+ * Grant used to access Kandy TaskRouter.
  *
  * <p>
  * For more information see:
- * <a href="https://www.twilio.com/docs/api/rest/access-tokens">
- * https://www.twilio.com/docs/api/rest/access-tokens
+ * <a href="https://www.kandy.com/docs/api/rest/access-tokens">
+ * https://www.kandy.com/docs/api/rest/access-tokens
  * </a>
  * </p>
  */

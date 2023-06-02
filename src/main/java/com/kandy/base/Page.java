@@ -34,7 +34,7 @@ public class Page<T> {
     }
 
     private String urlFromUri(String domain, String uri) {
-        return "https://" + domain + ".twilio.com" + uri;
+        return "https://" + domain + ".kandy.com" + uri;
     }
 
     public List<T> getRecords() {

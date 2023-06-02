@@ -271,9 +271,9 @@ public class Pay extends TwiML {
     }
 
     /**
-     * Input type Twilio should accept
+     * Input type Kandy should accept
      *
-     * @return Input type Twilio should accept
+     * @return Input type Kandy should accept
      */
     public Pay.Input getInput() {
         return input;
@@ -490,7 +490,7 @@ public class Pay extends TwiML {
         private Pay.Language language;
 
         /**
-         * Input type Twilio should accept
+         * Input type Kandy should accept
          */
         @JacksonXmlProperty(isAttribute = true, localName = "input")
         public Builder input(Pay.Input input) {

@@ -3,12 +3,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.kandy.sdk</groupId>
-  <artifactId>twilio</artifactId>
+  <artifactId>kandy</artifactId>
   <packaging>jar</packaging>
-  <name>twilio</name>
+  <name>kandy</name>
   <version>9.6.2</version>
-  <description>Twilio Java Helper Library</description>
-  <url>https://www.twilio.com</url>
+  <description>Kandy Java Helper Library</description>
+  <url>https://www.kandy.com</url>
   <licenses>
     <license>
       <name>MIT License</name>
@@ -17,18 +17,18 @@
     </license>
   </licenses>
   <scm>
-    <url>git@github.com:twilio/twilio-java.git</url>
-    <connection>scm:git:git@github.com:twilio/twilio-java.git</connection>
-    <developerConnection>scm:git:git@github.com:twilio/twilio-java.git</developerConnection>
+    <url>git@github.com:kandy/kandy-java.git</url>
+    <connection>scm:git:git@github.com:kandy/kandy-java.git</connection>
+    <developerConnection>scm:git:git@github.com:kandy/kandy-java.git</developerConnection>
     <tag>9.6.2</tag>
   </scm>
   <developers>
     <developer>
       <id>api</id>
-      <name>Twilio API</name>
-      <email>api@twilio.com</email>
-      <organization>Twilio, Inc.</organization>
-      <organizationUrl>https://www.twilio.com</organizationUrl>
+      <name>Kandy API</name>
+      <email>api@kandy.com</email>
+      <organization>Kandy, Inc.</organization>
+      <organizationUrl>https://www.kandy.com</organizationUrl>
       <timezone>-7</timezone>
     </developer>
   </developers>
@@ -173,9 +173,9 @@
     <jjwt.version>0.11.2</jjwt.version>
     <skip.tests>false</skip.tests>
     <dependency.skip>false</dependency.skip>
-    <sonar.organization>twilio</sonar.organization>
+    <sonar.organization>kandy</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <sonar.projectName>twilio-java</sonar.projectName>
+    <sonar.projectName>kandy-java</sonar.projectName>
     <sonar.coverage.exclusions>**/test/**/*.*,**/rest/**/*.*</sonar.coverage.exclusions>
     <sonar.cpd.exclusions>**/rest/**/*.*</sonar.cpd.exclusions>
   </properties>
@@ -382,9 +382,9 @@
           <author>true</author>
           <version>true</version>
           <use>true</use>
-          <windowtitle>Twilio Java</windowtitle>
-          <doctitle>&lt;h1&gt;Twilio Java&lt;/h1&gt;</doctitle>
-          <bottom>&lt;i&gt;Copyright &amp;#169; 2019 Twilio, Inc. All Rights Reserved.&lt;/i&gt;</bottom>
+          <windowtitle>Kandy Java</windowtitle>
+          <doctitle>&lt;h1&gt;Kandy Java&lt;/h1&gt;</doctitle>
+          <bottom>&lt;i&gt;Copyright &amp;#169; 2019 Kandy, Inc. All Rights Reserved.&lt;/i&gt;</bottom>
         </configuration>
         <executions>
           <execution>

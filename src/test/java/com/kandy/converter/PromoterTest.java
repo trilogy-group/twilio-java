@@ -15,9 +15,9 @@ public class PromoterTest {
 
     @Test
     public void testPromoteUri() {
-        URI uri = Promoter.uriFromString("https://trunking.twilio.com/v1/Trunks/TK123/OriginationUrls");
+        URI uri = Promoter.uriFromString("https://trunking.kandy.com/v1/Trunks/TK123/OriginationUrls");
         Assert.assertEquals(
-                "https://trunking.twilio.com/v1/Trunks/TK123/OriginationUrls",
+                "https://trunking.kandy.com/v1/Trunks/TK123/OriginationUrls",
                 uri.toString());
     }
 

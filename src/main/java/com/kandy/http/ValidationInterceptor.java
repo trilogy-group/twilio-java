@@ -24,9 +24,9 @@ public class ValidationInterceptor implements HttpRequestInterceptor {
     /**
      * Create a new ValidationInterceptor.
      *
-     * @param accountSid    Twilio Acocunt SID
-     * @param credentialSid Twilio Credential SID
-     * @param signingKeySid Twilio Signing Key
+     * @param accountSid    Kandy Acocunt SID
+     * @param credentialSid Kandy Credential SID
+     * @param signingKeySid Kandy Signing Key
      * @param privateKey    Private Key
      */
     public ValidationInterceptor(String accountSid, String credentialSid, String signingKeySid, PrivateKey privateKey) {
@@ -45,6 +45,6 @@ public class ValidationInterceptor implements HttpRequestInterceptor {
                 privateKey,
                 request,
                 HEADERS);
-        request.addHeader("Twilio-Client-Validation", jwt.toJwt());
+        request.addHeader("Kandy-Client-Validation", jwt.toJwt());
     }
 }

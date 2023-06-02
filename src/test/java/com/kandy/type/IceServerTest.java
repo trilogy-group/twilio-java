@@ -14,16 +14,16 @@ public class IceServerTest extends TypeTest {
     public void testFromJson() throws IOException {
         String json = "{\n" +
                 "    \"credential\": \"apn\",\n" +
-                "    \"username\": \"twilio\",\n" +
-                "    \"url\": \"https://www.twilio.ca\",\n" +
-                "    \"urls\": \"https://www.twilio.ca\"\n" +
+                "    \"username\": \"kandy\",\n" +
+                "    \"url\": \"https://www.kandy.ca\",\n" +
+                "    \"urls\": \"https://www.kandy.ca\"\n" +
                 "}";
 
         IceServer is = fromJson(json, IceServer.class);
-        Assert.assertEquals("https://www.twilio.ca", is.getUrl());
-        Assert.assertEquals("https://www.twilio.ca", is.getUrls());
+        Assert.assertEquals("https://www.kandy.ca", is.getUrl());
+        Assert.assertEquals("https://www.kandy.ca", is.getUrls());
         Assert.assertEquals(is.getUrls(), is.getUrl());
         Assert.assertEquals("apn", is.getCredential());
-        Assert.assertEquals("twilio", is.getUsername());
+        Assert.assertEquals("kandy", is.getUsername());
     }
 }

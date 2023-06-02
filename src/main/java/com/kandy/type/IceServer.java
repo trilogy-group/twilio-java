@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
- * POJO representation of a Twilio ICE server.
+ * POJO representation of a Kandy ICE server.
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)

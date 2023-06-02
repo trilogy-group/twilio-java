@@ -31,8 +31,8 @@ import java.util.stream.Collectors;
 public class ComplianceTest {
     static final private ImportOptions importOpts = new ImportOptions()
             .with(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS);
-    static final private JavaClasses twilioClasses = new ClassFileImporter(importOpts).importPackages("com.kandy");
-    static final private List<Class> resourceClasses = getResourceClasses(twilioClasses);
+    static final private JavaClasses kandyClasses = new ClassFileImporter(importOpts).importPackages("com.kandy");
+    static final private List<Class> resourceClasses = getResourceClasses(kandyClasses);
     static final private List<Class> variantClasses = new ArrayList<Class>(); // classes that do not follow the generic
                                                                               // template
 
@@ -47,7 +47,7 @@ public class ComplianceTest {
 
     @Before
     public void setUp() {
-        assertTrue(twilioClasses.size() > 0);
+        assertTrue(kandyClasses.size() > 0);
         assertTrue(resourceClasses.size() > 1);
         variantClasses.add(com.kandy.rest.voice.v1.ArchivedCall.class);
     }
@@ -65,20 +65,20 @@ public class ComplianceTest {
 
     @Test
     public void noClassesShouldUseJavaUtilLogging() {
-        NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING.check(twilioClasses);
+        NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING.check(kandyClasses);
     }
 
     @Test
     public void noClassesShouldUseLog4j() {
         // disallow Log4j version 1.x
-        disallowPackage("org.apache.log4j").check(twilioClasses);
+        disallowPackage("org.apache.log4j").check(kandyClasses);
         // disallow Log4j version 2.x
-        disallowPackage("org.apache.logging.log4j").check(twilioClasses);
+        disallowPackage("org.apache.logging.log4j").check(kandyClasses);
     }
 
     @Test
     public void noClassesShouldUseJodaTime() {
-        NO_CLASSES_SHOULD_USE_JODATIME.check(twilioClasses);
+        NO_CLASSES_SHOULD_USE_JODATIME.check(kandyClasses);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class ComplianceTest {
                 .haveOnlyFinalFields()
                 .andShould()
                 .haveOnlyPrivateConstructors()
-                .check(twilioClasses);
+                .check(kandyClasses);
     }
 
     private static List<Class> getResourceClasses(final JavaClasses jclasses) {

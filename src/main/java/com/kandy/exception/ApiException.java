@@ -2,7 +2,7 @@ package com.kandy.exception;
 
 import java.util.Map;
 
-public class ApiException extends TwilioException {
+public class ApiException extends KandyException {
 
     private static final long serialVersionUID = -3228320166955630014L;
 

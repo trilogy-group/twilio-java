@@ -17,7 +17,7 @@ import java.util.function.Function;
 
 public class ValidationToken extends Jwt {
 
-    private static final String CTY = "twilio-pkrv;v=1";
+    private static final String CTY = "kandy-pkrv;v=1";
 
     private final String accountSid;
     private final String credentialSid;
@@ -80,9 +80,9 @@ public class ValidationToken extends Jwt {
     /**
      * Create a ValidationToken from an HTTP Request.
      *
-     * @param accountSid    Twilio Account SID
-     * @param credentialSid Twilio Credential SID
-     * @param signingKeySid Twilio Signing Key SID
+     * @param accountSid    Kandy Account SID
+     * @param credentialSid Kandy Credential SID
+     * @param signingKeySid Kandy Signing Key SID
      * @param privateKey    Private Key
      * @param request       HTTP Request
      * @param signedHeaders Headers to sign
@@ -152,9 +152,9 @@ public class ValidationToken extends Jwt {
         /**
          * Create a new ValidationToken Builder.
          *
-         * @param accountSid    Twilio Account SID
-         * @param credentialSid Twilio Crednetial SID
-         * @param signingKeySid Twilio Signing Key SID
+         * @param accountSid    Kandy Account SID
+         * @param credentialSid Kandy Crednetial SID
+         * @param signingKeySid Kandy Signing Key SID
          * @param privateKey    Private Key
          */
         public Builder(String accountSid, String credentialSid, String signingKeySid, PrivateKey privateKey) {

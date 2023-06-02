@@ -29,12 +29,12 @@ public class ClusterTest {
         // only run when ClusterTest property is passed (mvn test -Dtest="ClusterTest"),
         // skip test run on mvn test
         Assume.assumeThat(System.getProperty("Test"), CoreMatchers.is("ClusterTest"));
-        fromNumber = System.getenv("TWILIO_FROM_NUMBER");
-        toNumber = System.getenv("TWILIO_TO_NUMBER");
-        String apiKey = System.getenv("TWILIO_API_KEY");
-        String secret = System.getenv("TWILIO_API_SECRET");
-        String accountSid = System.getenv("TWILIO_ACCOUNT_SID");
-        Twilio.init(apiKey, secret, accountSid);
+        fromNumber = System.getenv("KANDY_FROM_NUMBER");
+        toNumber = System.getenv("KANDY_TO_NUMBER");
+        String apiKey = System.getenv("KANDY_API_KEY");
+        String secret = System.getenv("KANDY_API_SECRET");
+        String accountSid = System.getenv("KANDY_ACCOUNT_SID");
+        Kandy.init(apiKey, secret, accountSid);
     }
 
     @Test

@@ -12,7 +12,9 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/video/api/track-subscriptions#specifying-sr>Specifying Subscribe Rules</a>
+ * <a
+ * href=https://www.kandy.com/docs/video/api/track-subscriptions#specifying-sr>Specifying
+ * Subscribe Rules</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,8 +33,10 @@ public class SubscribeRulesUpdate {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         final SubscribeRulesUpdate that = (SubscribeRulesUpdate) o;
         return Objects.equals(getRules(), that.getRules());
     }

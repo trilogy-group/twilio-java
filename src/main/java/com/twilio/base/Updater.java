@@ -1,7 +1,7 @@
 package com.kandy.base;
 
-import com.kandy.Twilio;
-import com.kandy.http.TwilioRestClient;
+import com.kandy.Kandy;
+import com.kandy.http.KandyRestClient;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,7 +18,7 @@ public abstract class Updater<T extends Resource> {
      * @return future that resolves to requested object
      */
     public CompletableFuture<T> updateAsync() {
-        return updateAsync(Twilio.getRestClient());
+        return updateAsync(Kandy.getRestClient());
     }
 
     /**
@@ -27,8 +27,8 @@ public abstract class Updater<T extends Resource> {
      * @param client client used to make request
      * @return future that resolves to requested object
      */
-    public CompletableFuture<T> updateAsync(final TwilioRestClient client) {
-        return CompletableFuture.supplyAsync(() -> update(client), Twilio.getExecutorService());
+    public CompletableFuture<T> updateAsync(final KandyRestClient client) {
+        return CompletableFuture.supplyAsync(() -> update(client), Kandy.getExecutorService());
     }
 
     /**
@@ -37,7 +37,7 @@ public abstract class Updater<T extends Resource> {
      * @return Requested object
      */
     public T update() {
-        return update(Twilio.getRestClient());
+        return update(Kandy.getRestClient());
     }
 
     /**
@@ -46,5 +46,5 @@ public abstract class Updater<T extends Resource> {
      * @param client client used to make request
      * @return Requested object
      */
-    public abstract T update(final TwilioRestClient client);
+    public abstract T update(final KandyRestClient client);
 }

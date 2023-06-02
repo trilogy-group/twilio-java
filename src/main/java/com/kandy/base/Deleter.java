@@ -1,7 +1,7 @@
 package com.kandy.base;
 
-import com.kandy.Twilio;
-import com.kandy.http.TwilioRestClient;
+import com.kandy.Kandy;
+import com.kandy.http.KandyRestClient;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,7 +18,7 @@ public abstract class Deleter<T extends Resource> {
      * @return future that resolves to true if the object was deleted
      */
     public CompletableFuture<Boolean> deleteAsync() {
-        return deleteAsync(Twilio.getRestClient());
+        return deleteAsync(Kandy.getRestClient());
     }
 
     /**
@@ -27,8 +27,8 @@ public abstract class Deleter<T extends Resource> {
      * @param client client used to make request
      * @return future that resolves to true if the object was deleted
      */
-    public CompletableFuture<Boolean> deleteAsync(final TwilioRestClient client) {
-        return CompletableFuture.supplyAsync(() -> delete(client), Twilio.getExecutorService());
+    public CompletableFuture<Boolean> deleteAsync(final KandyRestClient client) {
+        return CompletableFuture.supplyAsync(() -> delete(client), Kandy.getExecutorService());
     }
 
     /**
@@ -37,7 +37,7 @@ public abstract class Deleter<T extends Resource> {
      * @return true if the object was deleted
      */
     public boolean delete() {
-        return delete(Twilio.getRestClient());
+        return delete(Kandy.getRestClient());
     }
 
     /**
@@ -46,5 +46,5 @@ public abstract class Deleter<T extends Resource> {
      * @param client client used to make request
      * @return true if the object was deleted
      */
-    public abstract boolean delete(final TwilioRestClient client);
+    public abstract boolean delete(final KandyRestClient client);
 }

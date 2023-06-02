@@ -1,6 +1,6 @@
 package com.kandy.http;
 
-import com.kandy.Twilio;
+import com.kandy.Kandy;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;
@@ -9,15 +9,15 @@ import java.util.List;
 class HttpUtility {
     public String getUserAgentString(final List<String> userAgentExtensions) {
         StringBuilder userAgentString = new StringBuilder();
-        userAgentString.append("twilio-java/")
-                .append(Twilio.VERSION)
+        userAgentString.append("kandy-java/")
+                .append(Kandy.VERSION)
                 .append(" (")
-                .append(Twilio.OS_NAME)
+                .append(Kandy.OS_NAME)
                 .append(" ")
-                .append(Twilio.OS_ARCH)
+                .append(Kandy.OS_ARCH)
                 .append(") ")
                 .append("java/")
-                .append(Twilio.JAVA_VERSION);
+                .append(Kandy.JAVA_VERSION);
 
         if (userAgentExtensions != null && !userAgentExtensions.isEmpty()) {
             userAgentExtensions.stream().forEach(userAgentExtension -> {

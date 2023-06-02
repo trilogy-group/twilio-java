@@ -5,7 +5,7 @@ package com.kandy.jwt.taskrouter;
  */
 public class UrlUtils {
 
-    private static final String TASKROUTER_BASE_URL = "https://taskrouter.twilio.com";
+    private static final String TASKROUTER_BASE_URL = "https://taskrouter.kandy.com";
     private static final String TASKROUTER_VERSION = "v1";
 
     private UrlUtils() {

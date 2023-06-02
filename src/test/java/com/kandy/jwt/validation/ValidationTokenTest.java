@@ -54,7 +54,7 @@ public class ValidationTokenTest {
     public void setup() throws Exception {
         MockitoAnnotations.initMocks(this);
         headers = new Header[2];
-        headers[0] = new BasicHeader("host", "api.twilio.com");
+        headers[0] = new BasicHeader("host", "api.kandy.com");
         headers[1] = new BasicHeader("authorization", "foobar");
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
@@ -127,7 +127,7 @@ public class ValidationTokenTest {
 
     @Test
     public void testTokenFromHttpRequestWithHostPort() throws IOException {
-        headers[0] = new BasicHeader("host", "api.twilio.com:443");
+        headers[0] = new BasicHeader("host", "api.kandy.com:443");
 
         when(request.getRequestLine()).thenReturn(requestLine);
         when(requestLine.getMethod()).thenReturn("GET");

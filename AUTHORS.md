@@ -1,8 +1,6 @@
-Authors
-=======
+# Authors
 
 A huge thanks to all of our contributors:
-
 
 - Adam Ballai
 - Adam Rich
@@ -52,5 +50,5 @@ A huge thanks to all of our contributors:
 - Thomas Connors
 - Vincent Pizzo
 - olivier bourgain
-- rschiffert@twilio.com
+- rschiffert@kandy.com
 - Mitchell Friedman

@@ -392,10 +392,10 @@ public class Dial extends TwiML {
     }
 
     /**
-     * Ringtone allows you to override the ringback tone that Twilio will play back
+     * Ringtone allows you to override the ringback tone that Kandy will play back
      * to the caller while executing the Dial
      *
-     * @return Ringtone allows you to override the ringback tone that Twilio will
+     * @return Ringtone allows you to override the ringback tone that Kandy will
      *         play back to the caller while executing the Dial
      */
     public Dial.RingTone getRingTone() {
@@ -636,7 +636,7 @@ public class Dial extends TwiML {
         }
 
         /**
-         * Ringtone allows you to override the ringback tone that Twilio will play back
+         * Ringtone allows you to override the ringback tone that Kandy will play back
          * to the caller while executing the Dial
          */
         @JacksonXmlProperty(isAttribute = true, localName = "ringTone")

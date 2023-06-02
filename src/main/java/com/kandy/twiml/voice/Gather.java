@@ -322,9 +322,9 @@ public class Gather extends TwiML {
     }
 
     /**
-     * Input type Twilio should accept
+     * Input type Kandy should accept
      *
-     * @return Input type Twilio should accept
+     * @return Input type Kandy should accept
      */
     public List<Gather.Input> getInputs() {
         return input;
@@ -536,7 +536,7 @@ public class Gather extends TwiML {
         private Boolean enhanced;
 
         /**
-         * Input type Twilio should accept
+         * Input type Kandy should accept
          */
         @JacksonXmlProperty(isAttribute = true, localName = "input")
         public Builder inputs(List<Gather.Input> input) {
@@ -545,7 +545,7 @@ public class Gather extends TwiML {
         }
 
         /**
-         * Input type Twilio should accept
+         * Input type Kandy should accept
          */
         public Builder inputs(Gather.Input input) {
             this.input = Promoter.listOfOne(input);

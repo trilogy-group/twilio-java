@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/voice/pricing>Pricing Docs</a>
+ * <a href=https://www.kandy.com/voice/pricing>Pricing Docs</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -69,8 +69,8 @@ public class PhoneNumberPrice {
      */
     @JsonCreator
     public PhoneNumberPrice(@JsonProperty("base_price") final double basePrice,
-                            @JsonProperty("current_price") final double currentPrice,
-                            @JsonProperty("number_type") final Type type) {
+            @JsonProperty("current_price") final double currentPrice,
+            @JsonProperty("number_type") final Type type) {
         this.basePrice = basePrice;
         this.currentPrice = currentPrice;
         this.type = type;
@@ -115,8 +115,8 @@ public class PhoneNumberPrice {
 
         PhoneNumberPrice other = (PhoneNumberPrice) o;
         return Objects.equals(this.basePrice, other.basePrice) &&
-            Objects.equals(this.currentPrice, other.currentPrice) &&
-            Objects.equals(this.type, other.type);
+                Objects.equals(this.currentPrice, other.currentPrice) &&
+                Objects.equals(this.type, other.type);
     }
 
     @Override

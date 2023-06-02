@@ -3,7 +3,7 @@ package com.kandy.exception;
 import com.kandy.http.Request;
 import com.kandy.http.Response;
 
-public class CertificateValidationException extends TwilioException {
+public class CertificateValidationException extends KandyException {
 
     private final Request request;
     private final Response response;

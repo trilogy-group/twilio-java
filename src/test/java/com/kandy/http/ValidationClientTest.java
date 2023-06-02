@@ -43,7 +43,7 @@ public class ValidationClientTest {
         assertEquals(200, response.getStatusCode());
         final RecordedRequest recordedRequest = server.takeRequest();
         assertEquals(httpMethod.name(), recordedRequest.getMethod());
-        final String validationHeaderValue = recordedRequest.getHeader("Twilio-Client-Validation");
+        final String validationHeaderValue = recordedRequest.getHeader("Kandy-Client-Validation");
         assertNotNull(validationHeaderValue);
         assertTrue(validationHeaderValue.length() > 0);
     }

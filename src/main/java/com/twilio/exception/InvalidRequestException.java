@@ -1,6 +1,6 @@
 package com.kandy.exception;
 
-public class InvalidRequestException extends TwilioException {
+public class InvalidRequestException extends KandyException {
 
     private static final long serialVersionUID = 1L;
 

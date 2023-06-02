@@ -104,9 +104,9 @@ public class VirtualAgent extends TwiML {
     }
 
     /**
-     * URL to post status callbacks from Twilio
+     * URL to post status callbacks from Kandy
      *
-     * @return URL to post status callbacks from Twilio
+     * @return URL to post status callbacks from Kandy
      */
     public String getStatusCallback() {
         return statusCallback;
@@ -134,7 +134,8 @@ public class VirtualAgent extends TwiML {
                 return OBJECT_MAPPER.readValue(xml, Builder.class);
             } catch (final JsonProcessingException jpe) {
                 throw new TwiMLException(
-                    "Failed to deserialize a VirtualAgent.Builder from the provided XML string: " + jpe.getMessage());
+                        "Failed to deserialize a VirtualAgent.Builder from the provided XML string: "
+                                + jpe.getMessage());
             } catch (final Exception e) {
                 throw new TwiMLException("Unhandled exception: " + e.getMessage());
             }
@@ -174,7 +175,7 @@ public class VirtualAgent extends TwiML {
         }
 
         /**
-         * URL to post status callbacks from Twilio
+         * URL to post status callbacks from Kandy
          */
         @JacksonXmlProperty(isAttribute = true, localName = "statusCallback")
         public Builder statusCallback(String statusCallback) {

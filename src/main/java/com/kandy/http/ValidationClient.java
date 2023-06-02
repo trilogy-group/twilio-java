@@ -1,6 +1,6 @@
 package com.kandy.http;
 
-import com.kandy.Twilio;
+import com.kandy.Kandy;
 import com.kandy.exception.ApiException;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
@@ -27,9 +27,9 @@ public class ValidationClient extends HttpClient {
     /**
      * Create a new ValidationClient.
      *
-     * @param accountSid    Twilio Account SID
-     * @param credentialSid Twilio Credential SID
-     * @param signingKey    Twilio Signing key
+     * @param accountSid    Kandy Account SID
+     * @param credentialSid Kandy Credential SID
+     * @param signingKey    Kandy Signing key
      * @param privateKey    Private Key
      */
     public ValidationClient(final String accountSid,
@@ -42,9 +42,9 @@ public class ValidationClient extends HttpClient {
     /**
      * Create a new ValidationClient.
      *
-     * @param accountSid    Twilio Account SID
-     * @param credentialSid Twilio Credential SID
-     * @param signingKey    Twilio Signing key
+     * @param accountSid    Kandy Account SID
+     * @param credentialSid Kandy Credential SID
+     * @param signingKey    Kandy Signing key
      * @param privateKey    Private Key
      * @param requestConfig HTTP Request Config
      */
@@ -59,9 +59,9 @@ public class ValidationClient extends HttpClient {
     /**
      * Create a new ValidationClient.
      *
-     * @param accountSid    Twilio Account SID
-     * @param credentialSid Twilio Credential SID
-     * @param signingKey    Twilio Signing key
+     * @param accountSid    Kandy Account SID
+     * @param credentialSid Kandy Credential SID
+     * @param signingKey    Kandy Signing key
      * @param privateKey    Private Key
      * @param requestConfig HTTP Request Config
      * @param socketConfig  HTTP Socket Config
@@ -73,7 +73,7 @@ public class ValidationClient extends HttpClient {
             final RequestConfig requestConfig,
             final SocketConfig socketConfig) {
         Collection<BasicHeader> headers = Arrays.asList(
-                new BasicHeader("X-Twilio-Client", "java-" + Twilio.VERSION),
+                new BasicHeader("X-Kandy-Client", "java-" + Kandy.VERSION),
                 new BasicHeader(HttpHeaders.ACCEPT, "application/json"),
                 new BasicHeader(HttpHeaders.ACCEPT_ENCODING, "utf-8"));
 

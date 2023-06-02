@@ -19,7 +19,7 @@ jobs:
       matrix:
         java: [8, 11, 17]
     steps:
-      - name: Checkout twilio-java
+      - name: Checkout kandy-java
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
@@ -45,11 +45,11 @@ jobs:
       - name: Run Cluster Test
         if: (!github.event.pull_request.head.repo.fork)
         env:
-          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-          TWILIO_API_KEY: ${{ secrets.TWILIO_CLUSTER_TEST_API_KEY}}
-          TWILIO_API_SECRET: ${{ secrets.TWILIO_CLUSTER_TEST_API_KEY_SECRET }}
-          TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}
-          TWILIO_TO_NUMBER: ${{ secrets.TWILIO_TO_NUMBER }}
+          KANDY_ACCOUNT_SID: ${{ secrets.KANDY_ACCOUNT_SID }}
+          KANDY_API_KEY: ${{ secrets.KANDY_CLUSTER_TEST_API_KEY}}
+          KANDY_API_SECRET: ${{ secrets.KANDY_CLUSTER_TEST_API_KEY_SECRET }}
+          KANDY_FROM_NUMBER: ${{ secrets.KANDY_FROM_NUMBER }}
+          KANDY_TO_NUMBER: ${{ secrets.KANDY_TO_NUMBER }}
         run: mvn test -DTest="ClusterTest" -B
 
       - name: SonarCloud Scan
@@ -57,4 +57,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=twilio_twilio-java
+        run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kandy_kandy-java

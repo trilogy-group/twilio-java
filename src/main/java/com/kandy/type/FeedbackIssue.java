@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/api/rest/call-feedback>Feedback docs</a>
+ * <a href=https://www.kandy.com/docs/api/rest/call-feedback>Feedback docs</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)

@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/api/rest/call-feedback>Feedback docs</a>
+ * <a href=https://www.kandy.com/docs/api/rest/call-feedback>Feedback docs</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -31,8 +31,8 @@ public class FeedbackIssue {
      */
     @JsonCreator
     public FeedbackIssue(@JsonProperty("count") final int count,
-                         @JsonProperty("description") final String description,
-                         @JsonProperty("percentage_of_total_calls") final String percentageOfTotalCalls) {
+            @JsonProperty("description") final String description,
+            @JsonProperty("percentage_of_total_calls") final String percentageOfTotalCalls) {
         this.count = count;
         this.description = description;
         this.percentageOfTotalCalls = percentageOfTotalCalls;
@@ -62,8 +62,8 @@ public class FeedbackIssue {
 
         FeedbackIssue other = (FeedbackIssue) o;
         return Objects.equals(this.count, other.count) &&
-            Objects.equals(this.description, other.description) &&
-            Objects.equals(this.percentageOfTotalCalls, other.getPercentageOfTotalCalls());
+                Objects.equals(this.description, other.description) &&
+                Objects.equals(this.percentageOfTotalCalls, other.getPercentageOfTotalCalls());
     }
 
     @Override

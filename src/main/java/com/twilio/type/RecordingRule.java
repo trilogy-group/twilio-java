@@ -11,7 +11,9 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/video/api/recording-start/stop#specifying-sr>Specifying Recording Rules</a>
+ * <a
+ * href=https://www.kandy.com/docs/video/api/recording-start/stop#specifying-sr>Specifying
+ * Recording Rules</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -66,15 +68,21 @@ public class RecordingRule implements Rule {
 
     public interface BuilderMiddle {
         BuilderMiddleBuild withPublisher(final String publisher);
+
         BuilderMiddleBuild withKind(final Kind kind);
+
         BuilderMiddleBuild withTrack(final String track);
+
         BuilderBuild withAll();
     }
 
     public interface BuilderMiddleBuild {
         BuilderMiddleBuild withPublisher(final String publisher);
+
         BuilderMiddleBuild withKind(final Kind kind);
+
         BuilderMiddleBuild withTrack(final String track);
+
         RecordingRule build();
     }
 
@@ -105,14 +113,17 @@ public class RecordingRule implements Rule {
             this.all = true;
             return this;
         }
+
         public BuilderMiddleBuild withPublisher(final String publisher) {
             this.publisher = publisher;
             return this;
         }
+
         public BuilderMiddleBuild withKind(final Kind kind) {
             this.kind = kind;
             return this;
         }
+
         public BuilderMiddleBuild withTrack(final String track) {
             this.track = track;
             return this;
@@ -178,8 +189,10 @@ public class RecordingRule implements Rule {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof RecordingRule)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof RecordingRule))
+            return false;
         RecordingRule that = (RecordingRule) o;
         return getType() == that.getType() &&
                 Objects.equals(getAll(), that.getAll()) &&

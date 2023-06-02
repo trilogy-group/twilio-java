@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * JWT builder for Twilio auth tokens.
+ * JWT builder for Kandy auth tokens.
  */
 public abstract class Jwt {
 

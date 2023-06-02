@@ -11,7 +11,9 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/video/api/track-subscriptions#specifying-sr>Specifying Subscribe Rules</a>
+ * <a
+ * href=https://www.kandy.com/docs/video/api/track-subscriptions#specifying-sr>Specifying
+ * Subscribe Rules</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -109,17 +111,25 @@ public class SubscribeRule implements Rule {
 
     public interface BuilderMiddle {
         BuilderMiddleBuild withPublisher(final String publisher);
+
         BuilderMiddleBuild withKind(final Kind kind);
+
         BuilderMiddleBuild withTrack(final String track);
+
         BuilderMiddleBuild withPriority(final Priority priority);
+
         BuilderBuild withAll();
     }
 
     public interface BuilderMiddleBuild {
         BuilderMiddleBuild withPublisher(final String publisher);
+
         BuilderMiddleBuild withKind(final Kind kind);
+
         BuilderMiddleBuild withTrack(final String track);
+
         BuilderMiddleBuild withPriority(final Priority priority);
+
         SubscribeRule build();
     }
 
@@ -151,18 +161,22 @@ public class SubscribeRule implements Rule {
             this.all = true;
             return this;
         }
+
         public BuilderMiddleBuild withPublisher(final String publisher) {
             this.publisher = publisher;
             return this;
         }
+
         public BuilderMiddleBuild withKind(final Kind kind) {
             this.kind = kind;
             return this;
         }
+
         public BuilderMiddleBuild withTrack(final String track) {
             this.track = track;
             return this;
         }
+
         public BuilderMiddleBuild withPriority(final Priority priority) {
             this.priority = priority;
             return this;
@@ -196,8 +210,10 @@ public class SubscribeRule implements Rule {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof SubscribeRule)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof SubscribeRule))
+            return false;
         SubscribeRule that = (SubscribeRule) o;
         return getType() == that.getType() &&
                 Objects.equals(getAll(), that.getAll()) &&

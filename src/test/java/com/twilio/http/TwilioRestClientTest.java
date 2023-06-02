@@ -16,11 +16,11 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
 
 public class KandyRestClientTest {
-        private TwilioRestClient twilioRestClient;
+        private KandyRestClient kandyRestClient;
         @Mock
         private HttpClient httpClient;
 
-        private TwilioRestClient twilioRestClientExtension;
+        private KandyRestClient kandyRestClientExtension;
 
         private List<String> userAgentStringExtensions = Arrays.asList("ce-appointment-reminders/1.0.0",
                         "code-exchange");
@@ -34,8 +34,8 @@ public class KandyRestClientTest {
         @Before
         public void setUp() throws Exception {
                 MockitoAnnotations.initMocks(this);
-                twilioRestClient = new TwilioRestClient(
-                                new TwilioRestClient.Builder("AC123", "AUTH TOKEN").httpClient(httpClient));
+                kandyRestClient = new KandyRestClient(
+                                new KandyRestClient.Builder("AC123", "AUTH TOKEN").httpClient(httpClient));
         }
 
         @Test
@@ -46,7 +46,7 @@ public class KandyRestClientTest {
                                 URI);
                 when(httpClient.reliableRequest(request)).thenReturn(new Response("", 200));
 
-                Response resp = twilioRestClient.request(request);
+                Response resp = kandyRestClient.request(request);
                 assertNotNull(resp);
         }
 
@@ -56,10 +56,10 @@ public class KandyRestClientTest {
                                 HttpMethod.GET,
                                 Domains.API.toString(),
                                 URI);
-                twilioRestClientExtension = new TwilioRestClient.Builder(USER_NAME, TOKEN)
+                kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(userAgentStringExtensions)
                                 .build();
-                twilioRestClientExtension.request(request);
+                kandyRestClientExtension.request(request);
                 assertEquals(userAgentStringExtensions, request.getUserAgentExtensions());
         }
 
@@ -69,10 +69,10 @@ public class KandyRestClientTest {
                                 HttpMethod.GET,
                                 Domains.API.toString(),
                                 URI);
-                twilioRestClientExtension = new TwilioRestClient.Builder(USER_NAME, TOKEN)
+                kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(Collections.emptyList())
                                 .build();
-                twilioRestClientExtension.request(request);
+                kandyRestClientExtension.request(request);
                 assertNull(request.getUserAgentExtensions());
         }
 
@@ -82,10 +82,10 @@ public class KandyRestClientTest {
                                 HttpMethod.GET,
                                 Domains.API.toString(),
                                 URI);
-                twilioRestClientExtension = new TwilioRestClient.Builder(USER_NAME, TOKEN)
+                kandyRestClientExtension = new KandyRestClient.Builder(USER_NAME, TOKEN)
                                 .userAgentExtensions(null)
                                 .build();
-                twilioRestClientExtension.request(request);
+                kandyRestClientExtension.request(request);
                 assertNull(request.getUserAgentExtensions());
         }
 }

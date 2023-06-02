@@ -22,7 +22,7 @@ public class RequestCanonicalizerTest {
     @Before
     public void setup() {
         headers = new Header[4];
-        headers[0] = new BasicHeader("host", "api.twilio.com");
+        headers[0] = new BasicHeader("host", "api.kandy.com");
         headers[1] = new BasicHeader("authorization", "foobar");
         headers[2] = new BasicHeader("duplicate", "value2");
         headers[3] = new BasicHeader("Duplicate", "value1");
@@ -39,7 +39,7 @@ public class RequestCanonicalizerTest {
                 "Limit=10&PageSize=5\n" + // queryParams
                 "authorization:foobar\n" + // included header #1
                 "duplicate:value1,value2\n" + // included header #2
-                "host:api.twilio.com\n" + // included headar #3
+                "host:api.kandy.com\n" + // included headar #3
                 "\n" + // empty line after headers
                 "authorization;duplicate;host\n" + // included headers
                 "c3ab8ff13720e8ad9047dd39466b3c8974e592c2fa383d4a3960714caef0c4f2", // body hash
@@ -49,7 +49,7 @@ public class RequestCanonicalizerTest {
     @Test
     public void testCreateCanonicalRequestWithHostPort() {
         String queryParams = "PageSize=5&Limit=10";
-        headers[0] = new BasicHeader("host", "api.twilio.com:443");
+        headers[0] = new BasicHeader("host", "api.kandy.com:443");
 
         String canonicalRequest = canonicalizeWithQueryParams(queryParams);
 
@@ -58,7 +58,7 @@ public class RequestCanonicalizerTest {
                 "Limit=10&PageSize=5\n" + // queryParams
                 "authorization:foobar\n" + // included header #1
                 "duplicate:value1,value2\n" + // included header #2
-                "host:api.twilio.com\n" + // included headar #3
+                "host:api.kandy.com\n" + // included headar #3
                 "\n" + // empty line after headers
                 "authorization;duplicate;host\n" + // included headers
                 "c3ab8ff13720e8ad9047dd39466b3c8974e592c2fa383d4a3960714caef0c4f2", // body hash

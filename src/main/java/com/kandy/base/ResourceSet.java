@@ -1,6 +1,6 @@
 package com.kandy.base;
 
-import com.kandy.http.TwilioRestClient;
+import com.kandy.http.KandyRestClient;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 public class ResourceSet<E extends Resource> implements Iterable<E> {
 
     private final Reader<E> reader;
-    private final TwilioRestClient client;
+    private final KandyRestClient client;
 
     private boolean autoPaging;
     private long pages = 1;
@@ -29,7 +29,7 @@ public class ResourceSet<E extends Resource> implements Iterable<E> {
      * @param client client used to make requests
      * @param page   page of data
      */
-    public ResourceSet(final Reader<E> reader, final TwilioRestClient client, final Page<E> page) {
+    public ResourceSet(final Reader<E> reader, final KandyRestClient client, final Page<E> page) {
         this.reader = reader;
         this.client = client;
         this.page = page;

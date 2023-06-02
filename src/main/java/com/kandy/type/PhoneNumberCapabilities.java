@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/api/rest/available-phone-numbers>Phone
+ * <a href=https://www.kandy.com/docs/api/rest/available-phone-numbers>Phone
  * Number Docs</a>
  * </p>
  */

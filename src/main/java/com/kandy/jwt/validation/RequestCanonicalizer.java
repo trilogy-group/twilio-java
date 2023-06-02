@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * Creates a canonical string out of HTTP request components.
  * <p>
  * The process of generating the canonical request is described
- * <a href="https://www.twilio
+ * <a href="https://www.kandy
  * .com/docs/api/credentials/public-key-client-validation-getting-started#3-create-hash-of-the-canonical-request"
  * >here</a>.
  */

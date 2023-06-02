@@ -12,7 +12,7 @@ import java.util.Objects;
  * <p>
  * For more information see:
  * <a
- * href=https://www.twilio.com/docs/video/api/track-subscriptions#specifying-sr>Specifying
+ * href=https://www.kandy.com/docs/video/api/track-subscriptions#specifying-sr>Specifying
  * Subscribe Rules</a>
  * </p>
  */

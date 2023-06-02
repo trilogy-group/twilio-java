@@ -1,7 +1,7 @@
 package com.kandy.base;
 
-import com.kandy.Twilio;
-import com.kandy.http.TwilioRestClient;
+import com.kandy.Kandy;
+import com.kandy.http.KandyRestClient;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,7 +21,7 @@ public abstract class Reader<T extends Resource> {
      * @return ResourceSet of objects
      */
     public ResourceSet<T> read() {
-        return read(Twilio.getRestClient());
+        return read(Kandy.getRestClient());
     }
 
     /**
@@ -30,7 +30,7 @@ public abstract class Reader<T extends Resource> {
      * @param client client used to make request
      * @return ResourceSet of objects
      */
-    public abstract ResourceSet<T> read(final TwilioRestClient client);
+    public abstract ResourceSet<T> read(final KandyRestClient client);
 
     /**
      * Execute an async request using default client.
@@ -38,7 +38,7 @@ public abstract class Reader<T extends Resource> {
      * @return future that resolves to the ResourceSet of objects
      */
     public CompletableFuture<ResourceSet<T>> readAsync() {
-        return readAsync(Twilio.getRestClient());
+        return readAsync(Kandy.getRestClient());
     }
 
     /**
@@ -47,8 +47,8 @@ public abstract class Reader<T extends Resource> {
      * @param client client used to make request
      * @return future that resolves to the ResourceSet of objects
      */
-    public CompletableFuture<ResourceSet<T>> readAsync(final TwilioRestClient client) {
-        return CompletableFuture.supplyAsync(() -> read(client), Twilio.getExecutorService());
+    public CompletableFuture<ResourceSet<T>> readAsync(final KandyRestClient client) {
+        return CompletableFuture.supplyAsync(() -> read(client), Kandy.getExecutorService());
     }
 
     /**
@@ -57,7 +57,7 @@ public abstract class Reader<T extends Resource> {
      * @return Page containing the first pageSize of resources
      */
     public Page<T> firstPage() {
-        return firstPage(Twilio.getRestClient());
+        return firstPage(Kandy.getRestClient());
     }
 
     /**
@@ -66,7 +66,7 @@ public abstract class Reader<T extends Resource> {
      * @param client client used to fetch
      * @return Page containing the first pageSize of resources
      */
-    public abstract Page<T> firstPage(final TwilioRestClient client);
+    public abstract Page<T> firstPage(final KandyRestClient client);
 
     /**
      * Retrieve the target page of resources.
@@ -75,7 +75,7 @@ public abstract class Reader<T extends Resource> {
      * @return Page containing the target pageSize of resources
      */
     public Page<T> getPage(final String targetUrl) {
-        return getPage(targetUrl, Twilio.getRestClient());
+        return getPage(targetUrl, Kandy.getRestClient());
     }
 
     /**
@@ -85,7 +85,7 @@ public abstract class Reader<T extends Resource> {
      * @param client    client used to fetch
      * @return Page containing the target pageSize of resources
      */
-    public abstract Page<T> getPage(final String targetUrl, final TwilioRestClient client);
+    public abstract Page<T> getPage(final String targetUrl, final KandyRestClient client);
 
     /**
      * Fetch the following page of resources.
@@ -94,7 +94,7 @@ public abstract class Reader<T extends Resource> {
      * @return Page containing the next pageSize of resources
      */
     public Page<T> nextPage(final Page<T> page) {
-        return nextPage(page, Twilio.getRestClient());
+        return nextPage(page, Kandy.getRestClient());
     }
 
     /**
@@ -104,7 +104,7 @@ public abstract class Reader<T extends Resource> {
      * @param client client used to fetch
      * @return Page containing the next pageSize of resources
      */
-    public abstract Page<T> nextPage(final Page<T> page, final TwilioRestClient client);
+    public abstract Page<T> nextPage(final Page<T> page, final KandyRestClient client);
 
     /**
      * Fetch the prior page of resources.
@@ -113,7 +113,7 @@ public abstract class Reader<T extends Resource> {
      * @return Page containing the previous pageSize of resources
      */
     public Page<T> previousPage(final Page<T> page) {
-        return previousPage(page, Twilio.getRestClient());
+        return previousPage(page, Kandy.getRestClient());
     }
 
     /**
@@ -123,7 +123,7 @@ public abstract class Reader<T extends Resource> {
      * @param client client used to fetch
      * @return Page containing the previous pageSize of resources
      */
-    public abstract Page<T> previousPage(final Page<T> page, final TwilioRestClient client);
+    public abstract Page<T> previousPage(final Page<T> page, final KandyRestClient client);
 
     public Integer getPageSize() {
         return pageSize;

@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/voice/pricing>Pricing Docs</a>
+ * <a href=https://www.kandy.com/voice/pricing>Pricing Docs</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)

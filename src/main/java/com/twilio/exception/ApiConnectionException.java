@@ -1,6 +1,6 @@
 package com.kandy.exception;
 
-public class ApiConnectionException extends TwilioException {
+public class ApiConnectionException extends KandyException {
 
     private static final long serialVersionUID = 6354388724599793830L;
 

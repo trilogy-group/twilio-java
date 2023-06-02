@@ -14,7 +14,7 @@ import java.util.Objects;
  * <p>
  * For more information see:
  * <a
- * href=https://www.twilio.com/docs/api/pricing/voice#outbound-prefix-price>Pricing
+ * href=https://www.kandy.com/docs/api/pricing/voice#outbound-prefix-price>Pricing
  * docs</a>
  * </p>
  */

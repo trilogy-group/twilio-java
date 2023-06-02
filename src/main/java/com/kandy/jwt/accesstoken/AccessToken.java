@@ -12,18 +12,18 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Access Token use to grant privileges to Twilio resources.
+ * Access Token use to grant privileges to Kandy resources.
  *
  * <p>
  * For more information see:
- * <a href="https://www.twilio.com/docs/api/rest/access-tokens">
- * https://www.twilio.com/docs/api/rest/access-tokens
+ * <a href="https://www.kandy.com/docs/api/rest/access-tokens">
+ * https://www.kandy.com/docs/api/rest/access-tokens
  * </a>
  * </p>
  */
 public class AccessToken extends Jwt {
 
-    private static final String CTY = "twilio-fpa;v=1";
+    private static final String CTY = "kandy-fpa;v=1";
 
     private final String id;
     private final String accountSid;

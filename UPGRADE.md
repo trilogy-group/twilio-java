@@ -6,7 +6,7 @@ _`MAJOR` version bumps will have upgrade notes posted here._
 
 ### Overview
 
-##### Twilio Java Helper Library’s major version 9.0.0 is now available. We ensured that you can upgrade to Java helper Library 9.0.0 version without any breaking changes
+##### Kandy Java Helper Library’s major version 9.0.0 is now available. We ensured that you can upgrade to Java helper Library 9.0.0 version without any breaking changes
 
 Behind the scenes Java Helper is now auto-generated via OpenAPI with this release. This enables us to rapidly add new features and enhance consistency across versions and languages.
 
@@ -17,12 +17,12 @@ Behind the scenes Java Helper is now auto-generated via OpenAPI with this releas
 Version `8.x.x` is the first version that officially drops support for Java 7.
 
 - Removal of dependencies offering functionality included in Java 8 and beyond:
-  - [Guava concurrency, hashing, and charstreams](https://github.com/twilio/twilio-java/pull/575)
-  - [Guava `com.google.common.collect.Range` removal](https://github.com/twilio/twilio-java/pull/584)
-  - [joda-time](https://github.com/twilio/twilio-java/pull/572)
+  - [Guava concurrency, hashing, and charstreams](https://github.com/kandy/kandy-java/pull/575)
+  - [Guava `com.google.common.collect.Range` removal](https://github.com/kandy/kandy-java/pull/584)
+  - [joda-time](https://github.com/kandy/kandy-java/pull/572)
     - `org.joda.time.DateTime` -> `java.time.ZonedDateTime`
     - `org.joda.time.LocalDate` -> `java.time.LocalDate`
-- [Removal of deprecated classes and methods](https://github.com/twilio/twilio-java/pull/578):
+- [Removal of deprecated classes and methods](https://github.com/kandy/kandy-java/pull/578):
   - `com.kandy.jwt.accesstoken.ConversationsGrant`
   - `com.kandy.jwt.accesstoken.IpMessagingGrant`
   - `com.kandy.jwt.accesstoken.VideoGrant.getConfigurationProfileSid()`
@@ -41,7 +41,7 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 
 ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(Executors.newCachedThreadPool());
-Twilio.setExecutorService(listeningExecutorService);
+Kandy.setExecutorService(listeningExecutorService);
 ```
 
 ```java
@@ -50,7 +50,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executor;
 
 ExecutorService executorService = Executors.newCachedThreadPool();
-Twilio.setExecutorService(executorService);
+Kandy.setExecutorService(executorService);
 ```
 
 #### Making asynchronous requests
@@ -264,7 +264,7 @@ for (IceServer iceServer : token.getIceServers()) {
 
 ### Overview
 
-Version `7.17.x` is the first version containing our new auto-generated twiml classes. As such a fair amount of backwards incompatible changes were made to the twiml module to standardize it with the other twilio helper libraries as well as improve the experience of using TwiML. Some changes that affect all resources:
+Version `7.17.x` is the first version containing our new auto-generated twiml classes. As such a fair amount of backwards incompatible changes were made to the twiml module to standardize it with the other kandy helper libraries as well as improve the experience of using TwiML. Some changes that affect all resources:
 
 - Java types are now used when possible.
   - Ie url parameters now take java's `URI` type, phone number parameters now take `PhoneNumber` types
@@ -496,7 +496,7 @@ Pause pause = new Pause.Builder()
 
 ```java
 // 7.16.x
-Say say = new Say.Builder("I <3 Twilio")
+Say say = new Say.Builder("I <3 Kandy")
    .language(Language.GB)
    .voice(Say.Voice.MAN)
    .build();
@@ -504,7 +504,7 @@ Say say = new Say.Builder("I <3 Twilio")
 
 ```java
 // 7.17.x
-Say say = new Say.Builder("I <3 Twilio")
+Say say = new Say.Builder("I <3 Kandy")
    .language(Say.Language.EN_GB)
    .voice(Say.Voice.MAN)
    .build();
@@ -606,14 +606,14 @@ notificationCreator.setApn(data);
 
 ## [2017-05-24] 7.10.x to 7.11.x
 
-### CHANGED - Rename `Recording` to `RoomRecording` in TwilioVideo
+### CHANGED - Rename `Recording` to `RoomRecording` in KandyVideo
 
 #### Affected Resources
 
-    - `src/main/java/com/twilio/rest/video/v1/room/Recording.java`
-    - `src/main/java/com/twilio/rest/video/v1/room/RecordingFetcher.java`
-    - `src/main/java/com/twilio/rest/video/v1/room/RecordingReader.java`
-    - `src/test/java/com/twilio/rest/video/v1/room/RecordingTest.java`
+    - `src/main/java/com/kandy/rest/video/v1/room/Recording.java`
+    - `src/main/java/com/kandy/rest/video/v1/room/RecordingFetcher.java`
+    - `src/main/java/com/kandy/rest/video/v1/room/RecordingReader.java`
+    - `src/test/java/com/kandy/rest/video/v1/room/RecordingTest.java`
 
 ```java
 // 7.10.x
@@ -637,7 +637,7 @@ There already exists a getter for the resource
 
 #### Affected Resources
 
-- `src/main/java/com/twilio/rest/lookups/v1/PhoneNumber.java`
+- `src/main/java/com/kandy/rest/lookups/v1/PhoneNumber.java`
 
 ```java
 // 7.9.x
@@ -649,9 +649,9 @@ resource.getSid();
 resource.getPhoneNumber().toString();
 ```
 
-- `src/main/java/com/twilio/rest/pricing/v1/messaging/Country.java`
-- `src/main/java/com/twilio/rest/pricing/v1/phonenumber/Country.java`
-- `src/main/java/com/twilio/rest/pricing/v1/voice/Country.java`
+- `src/main/java/com/kandy/rest/pricing/v1/messaging/Country.java`
+- `src/main/java/com/kandy/rest/pricing/v1/phonenumber/Country.java`
+- `src/main/java/com/kandy/rest/pricing/v1/voice/Country.java`
 
 ```java
 // 7.9.x
@@ -663,7 +663,7 @@ resource.getSid();
 resource.getIsoCountry();
 ```
 
-- `src/main/java/com/twilio/rest/pricing/v1/voice/Number.java`
+- `src/main/java/com/kandy/rest/pricing/v1/voice/Number.java`
 
 ```java
 // 7.9.x

@@ -7,10 +7,10 @@
 
 package com.kandy.twiml;
 
-import com.kandy.exception.TwilioException;
+import com.kandy.exception.KandyException;
 
 @SuppressWarnings("checkstyle:abbreviationaswordinname")
-public class TwiMLException extends TwilioException {
+public class TwiMLException extends KandyException {
     private static final long serialVersionUID = -2688644569829574015L;
 
     /**

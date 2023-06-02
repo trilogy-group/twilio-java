@@ -7,7 +7,7 @@ import com.kandy.http.HttpMethod;
 import com.kandy.http.NetworkHttpClient;
 import com.kandy.http.Request;
 import com.kandy.http.Response;
-import com.kandy.http.TwilioRestClient;
+import com.kandy.http.KandyRestClient;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Singleton class to initialize Twilio environment.
+ * Singleton class to initialize Kandy environment.
  */
 public class Kandy {
 
@@ -25,17 +25,17 @@ public class Kandy {
     public static final String JAVA_VERSION = System.getProperty("java.version");
     public static final String OS_NAME = System.getProperty("os.name");
     public static final String OS_ARCH = System.getProperty("os.arch");
-    private static String username = System.getenv("TWILIO_ACCOUNT_SID");
-    private static String password = System.getenv("TWILIO_AUTH_TOKEN");
+    private static String username = System.getenv("KANDY_ACCOUNT_SID");
+    private static String password = System.getenv("KANDY_AUTH_TOKEN");
     private static String accountSid; // username used if this is null
     @Getter
     private static List<String> userAgentExtensions;
-    private static String region = System.getenv("TWILIO_REGION");
-    private static String edge = System.getenv("TWILIO_EDGE");
-    private static volatile TwilioRestClient restClient;
+    private static String region = System.getenv("KANDY_REGION");
+    private static String edge = System.getenv("KANDY_EDGE");
+    private static volatile KandyRestClient restClient;
     private static volatile ExecutorService executorService;
 
-    private Twilio() {
+    private Kandy() {
     }
 
     /*
@@ -53,28 +53,28 @@ public class Kandy {
     }
 
     /**
-     * Initialize the Twilio environment.
+     * Initialize the Kandy environment.
      *
      * @param username account to use
      * @param password auth token for the account
      */
     public static synchronized void init(final String username, final String password) {
-        Twilio.setUsername(username);
-        Twilio.setPassword(password);
-        Twilio.setAccountSid(null);
+        Kandy.setUsername(username);
+        Kandy.setPassword(password);
+        Kandy.setAccountSid(null);
     }
 
     /**
-     * Initialize the Twilio environment.
+     * Initialize the Kandy environment.
      *
      * @param username   account to use
      * @param password   auth token for the account
      * @param accountSid account sid to use
      */
     public static synchronized void init(final String username, final String password, final String accountSid) {
-        Twilio.setUsername(username);
-        Twilio.setPassword(password);
-        Twilio.setAccountSid(accountSid);
+        Kandy.setUsername(username);
+        Kandy.setPassword(password);
+        Kandy.setAccountSid(accountSid);
     }
 
     /**
@@ -88,11 +88,11 @@ public class Kandy {
             throw new AuthenticationException("Username can not be null");
         }
 
-        if (!username.equals(Twilio.username)) {
-            Twilio.invalidate();
+        if (!username.equals(Kandy.username)) {
+            Kandy.invalidate();
         }
 
-        Twilio.username = username;
+        Kandy.username = username;
     }
 
     /**
@@ -106,11 +106,11 @@ public class Kandy {
             throw new AuthenticationException("Password can not be null");
         }
 
-        if (!password.equals(Twilio.password)) {
-            Twilio.invalidate();
+        if (!password.equals(Kandy.password)) {
+            Kandy.invalidate();
         }
 
-        Twilio.password = password;
+        Kandy.password = password;
     }
 
     /**
@@ -119,19 +119,19 @@ public class Kandy {
      * @param accountSid account sid to use
      */
     public static synchronized void setAccountSid(final String accountSid) {
-        if (!Objects.equals(accountSid, Twilio.accountSid)) {
-            Twilio.invalidate();
+        if (!Objects.equals(accountSid, Kandy.accountSid)) {
+            Kandy.invalidate();
         }
 
-        Twilio.accountSid = accountSid;
+        Kandy.accountSid = accountSid;
     }
 
     public static synchronized void setUserAgentExtensions(final List<String> userAgentExtensions) {
         if (userAgentExtensions != null && !userAgentExtensions.isEmpty()) {
-            Twilio.userAgentExtensions = new ArrayList<>(userAgentExtensions);
+            Kandy.userAgentExtensions = new ArrayList<>(userAgentExtensions);
         } else {
             // In case a developer wants to reset userAgentExtensions
-            Twilio.userAgentExtensions = null;
+            Kandy.userAgentExtensions = null;
         }
     }
 
@@ -141,11 +141,11 @@ public class Kandy {
      * @param region region to make request
      */
     public static synchronized void setRegion(final String region) {
-        if (!Objects.equals(region, Twilio.region)) {
-            Twilio.invalidate();
+        if (!Objects.equals(region, Kandy.region)) {
+            Kandy.invalidate();
         }
 
-        Twilio.region = region;
+        Kandy.region = region;
     }
 
     /**
@@ -154,50 +154,50 @@ public class Kandy {
      * @param edge edge to make request
      */
     public static synchronized void setEdge(final String edge) {
-        if (!Objects.equals(edge, Twilio.edge)) {
-            Twilio.invalidate();
+        if (!Objects.equals(edge, Kandy.edge)) {
+            Kandy.invalidate();
         }
 
-        Twilio.edge = edge;
+        Kandy.edge = edge;
     }
 
     /**
-     * Returns (and initializes if not initialized) the Twilio Rest Client.
+     * Returns (and initializes if not initialized) the Kandy Rest Client.
      *
-     * @return the Twilio Rest Client
+     * @return the Kandy Rest Client
      * @throws AuthenticationException if initialization required and either
      *                                 accountSid or authToken is null
      */
-    public static TwilioRestClient getRestClient() {
-        if (Twilio.restClient == null) {
-            synchronized (Twilio.class) {
-                if (Twilio.restClient == null) {
-                    Twilio.restClient = buildRestClient();
+    public static KandyRestClient getRestClient() {
+        if (Kandy.restClient == null) {
+            synchronized (Kandy.class) {
+                if (Kandy.restClient == null) {
+                    Kandy.restClient = buildRestClient();
                 }
             }
         }
 
-        return Twilio.restClient;
+        return Kandy.restClient;
     }
 
-    private static TwilioRestClient buildRestClient() {
-        if (Twilio.username == null || Twilio.password == null) {
+    private static KandyRestClient buildRestClient() {
+        if (Kandy.username == null || Kandy.password == null) {
             throw new AuthenticationException(
-                    "TwilioRestClient was used before AccountSid and AuthToken were set, please call Twilio.init()");
+                    "KandyRestClient was used before AccountSid and AuthToken were set, please call Kandy.init()");
         }
 
-        TwilioRestClient.Builder builder = new TwilioRestClient.Builder(Twilio.username, Twilio.password);
+        KandyRestClient.Builder builder = new KandyRestClient.Builder(Kandy.username, Kandy.password);
 
-        if (Twilio.accountSid != null) {
-            builder.accountSid(Twilio.accountSid);
+        if (Kandy.accountSid != null) {
+            builder.accountSid(Kandy.accountSid);
         }
 
         if (userAgentExtensions != null) {
-            builder.userAgentExtensions(Twilio.userAgentExtensions);
+            builder.userAgentExtensions(Kandy.userAgentExtensions);
         }
 
-        builder.region(Twilio.region);
-        builder.edge(Twilio.edge);
+        builder.region(Kandy.region);
+        builder.edge(Kandy.edge);
 
         return builder.build();
     }
@@ -207,26 +207,26 @@ public class Kandy {
      *
      * @param restClient rest client to use
      */
-    public static void setRestClient(final TwilioRestClient restClient) {
-        synchronized (Twilio.class) {
-            Twilio.restClient = restClient;
+    public static void setRestClient(final KandyRestClient restClient) {
+        synchronized (Kandy.class) {
+            Kandy.restClient = restClient;
         }
     }
 
     /**
-     * Returns the Twilio executor service.
+     * Returns the Kandy executor service.
      *
-     * @return the Twilio executor service
+     * @return the Kandy executor service
      */
     public static ExecutorService getExecutorService() {
-        if (Twilio.executorService == null) {
-            synchronized (Twilio.class) {
-                if (Twilio.executorService == null) {
-                    Twilio.executorService = Executors.newCachedThreadPool();
+        if (Kandy.executorService == null) {
+            synchronized (Kandy.class) {
+                if (Kandy.executorService == null) {
+                    Kandy.executorService = Executors.newCachedThreadPool();
                 }
             }
         }
-        return Twilio.executorService;
+        return Kandy.executorService;
     }
 
     /**
@@ -235,14 +235,14 @@ public class Kandy {
      * @param executorService executor service to use
      */
     public static void setExecutorService(final ExecutorService executorService) {
-        synchronized (Twilio.class) {
-            Twilio.executorService = executorService;
+        synchronized (Kandy.class) {
+            Kandy.executorService = executorService;
         }
     }
 
     /**
      * Validate that we can connect to the new SSL certificate posted on
-     * api.twilio.com.
+     * api.kandy.com.
      *
      * @throws CertificateValidationException if the connection fails
      */
@@ -252,11 +252,11 @@ public class Kandy {
     }
 
     public static void validateSslCertificate(NetworkHttpClient client) {
-        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com:8443");
+        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com:8443");
         try {
             final Response response = client.makeRequest(request);
 
-            if (!TwilioRestClient.SUCCESS.test(response.getStatusCode())) {
+            if (!KandyRestClient.SUCCESS.test(response.getStatusCode())) {
                 throw new CertificateValidationException(
                         "Unexpected response from certificate endpoint", request, response);
             }
@@ -266,10 +266,10 @@ public class Kandy {
     }
 
     /**
-     * Invalidates the volatile state held in the Twilio singleton.
+     * Invalidates the volatile state held in the Kandy singleton.
      */
     private static void invalidate() {
-        Twilio.restClient = null;
+        Kandy.restClient = null;
     }
 
     /**

@@ -13,7 +13,8 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/api/pricing/messaging>Message Pricing Docs</a>
+ * <a href=https://www.kandy.com/docs/api/pricing/messaging>Message Pricing
+ * Docs</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -34,9 +35,9 @@ public class OutboundSmsPrice {
      */
     @JsonCreator
     public OutboundSmsPrice(@JsonProperty("mcc") final String mcc,
-                            @JsonProperty("mnc") final String mnc,
-                            @JsonProperty("carrier") final String carrier,
-                            @JsonProperty("prices") final List<InboundSmsPrice> prices) {
+            @JsonProperty("mnc") final String mnc,
+            @JsonProperty("carrier") final String carrier,
+            @JsonProperty("prices") final List<InboundSmsPrice> prices) {
         this.mcc = mcc;
         this.mnc = mnc;
         this.carrier = carrier;
@@ -70,9 +71,9 @@ public class OutboundSmsPrice {
 
         OutboundSmsPrice other = (OutboundSmsPrice) o;
         return Objects.equals(this.mcc, other.mcc) &&
-            Objects.equals(this.mnc, other.mnc) &&
-            Objects.equals(this.carrier, other.carrier) &&
-            Objects.equals(this.prices, other.prices);
+                Objects.equals(this.mnc, other.mnc) &&
+                Objects.equals(this.carrier, other.carrier) &&
+                Objects.equals(this.prices, other.prices);
     }
 
     @Override

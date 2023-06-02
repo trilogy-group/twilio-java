@@ -7,7 +7,7 @@ import com.kandy.http.HttpMethod;
 import com.kandy.http.NetworkHttpClient;
 import com.kandy.http.Request;
 import com.kandy.http.Response;
-import com.kandy.http.TwilioRestClient;
+import com.kandy.http.KandyRestClient;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -53,86 +53,86 @@ public class KandyTest {
 
     @Test
     public void testGetExecutorService() {
-        assertNotNull(Twilio.getExecutorService());
+        assertNotNull(Kandy.getExecutorService());
     }
 
     @Test(expected = AuthenticationException.class)
     public void testGetRestClientNullAccountSid() {
-        Twilio.setRestClient(null);
-        Twilio.setUsername(null);
-        Twilio.setPassword(null);
+        Kandy.setRestClient(null);
+        Kandy.setUsername(null);
+        Kandy.setPassword(null);
 
-        Twilio.getRestClient();
+        Kandy.getRestClient();
         fail("AuthenticationException was expected");
     }
 
     @Test(expected = AuthenticationException.class)
     public void testSetAccountSidNull() {
-        Twilio.setUsername(null);
+        Kandy.setUsername(null);
         fail("AuthenticationException was expected");
     }
 
     @Test(expected = AuthenticationException.class)
     public void testSetAuthTokenNull() {
-        Twilio.setPassword(null);
+        Kandy.setPassword(null);
         fail("AuthenticationException was expected");
     }
 
     @Test
     public void testUserAgentExtensions() {
-        Twilio.setUsername(USER_NAME);
-        Twilio.setPassword(TOKEN);
-        Twilio.setUserAgentExtensions(Arrays.asList("ce-appointment-reminders/1.0.0", "code-exchange"));
-        Twilio.getRestClient();
-        assertEquals(Arrays.asList("ce-appointment-reminders/1.0.0", "code-exchange"), Twilio.getUserAgentExtensions());
+        Kandy.setUsername(USER_NAME);
+        Kandy.setPassword(TOKEN);
+        Kandy.setUserAgentExtensions(Arrays.asList("ce-appointment-reminders/1.0.0", "code-exchange"));
+        Kandy.getRestClient();
+        assertEquals(Arrays.asList("ce-appointment-reminders/1.0.0", "code-exchange"), Kandy.getUserAgentExtensions());
     }
 
     @Test
     public void testUserAgentExtensionsEmpty() {
-        Twilio.setUsername(USER_NAME);
-        Twilio.setPassword(TOKEN);
-        Twilio.setUserAgentExtensions(Collections.emptyList()); // Resetting userAgentExtension
-        Twilio.getRestClient();
-        assertNull(Twilio.getUserAgentExtensions());
+        Kandy.setUsername(USER_NAME);
+        Kandy.setPassword(TOKEN);
+        Kandy.setUserAgentExtensions(Collections.emptyList()); // Resetting userAgentExtension
+        Kandy.getRestClient();
+        assertNull(Kandy.getUserAgentExtensions());
     }
 
     @Test
     public void testUserAgentExtensionsNull() {
-        Twilio.setUsername(USER_NAME);
-        Twilio.setPassword(TOKEN);
-        Twilio.setUserAgentExtensions(null); // Resetting userAgentExtension
-        Twilio.getRestClient();
-        assertNull(Twilio.getUserAgentExtensions());
+        Kandy.setUsername(USER_NAME);
+        Kandy.setPassword(TOKEN);
+        Kandy.setUserAgentExtensions(null); // Resetting userAgentExtension
+        Kandy.getRestClient();
+        assertNull(Kandy.getUserAgentExtensions());
     }
 
     @Test
     public void testSetExecutorService() {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        Twilio.setExecutorService(executorService);
-        assertEquals(executorService, Twilio.getExecutorService());
+        Kandy.setExecutorService(executorService);
+        assertEquals(executorService, Kandy.getExecutorService());
     }
 
     @Test
     public void testDestroyExecutorService() {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        Twilio.setExecutorService(executorService);
-        Twilio.destroy();
-        assertTrue(Twilio.getExecutorService().isShutdown());
+        Kandy.setExecutorService(executorService);
+        Kandy.destroy();
+        assertTrue(Kandy.getExecutorService().isShutdown());
     }
 
     @Test
     public void testSetRestClient() {
-        TwilioRestClient twilioRestClient = new TwilioRestClient.Builder("AC123", "AUTH TOKEN").build();
-        Twilio.setRestClient(twilioRestClient);
-        assertEquals(twilioRestClient, Twilio.getRestClient());
+        KandyRestClient kandyRestClient = new KandyRestClient.Builder("AC123", "AUTH TOKEN").build();
+        Kandy.setRestClient(kandyRestClient);
+        assertEquals(kandyRestClient, Kandy.getRestClient());
     }
 
     @Test
     public void testValidateSslCertificateError() {
-        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com:8443");
+        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com:8443");
         when(networkHttpClient.makeRequest(request)).thenReturn(new Response("", 500));
         try {
-            Twilio.validateSslCertificate(networkHttpClient);
+            Kandy.validateSslCertificate(networkHttpClient);
             fail("Excepted CertificateValidationException");
         } catch (final CertificateValidationException e) {
             assertEquals("Unexpected response from certificate endpoint", e.getMessage());
@@ -141,11 +141,11 @@ public class KandyTest {
 
     @Test
     public void testValidateSslCertificateException() {
-        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com:8443");
+        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com:8443");
         when(networkHttpClient.makeRequest(request)).thenThrow(new ApiException("No"));
 
         try {
-            Twilio.validateSslCertificate(networkHttpClient);
+            Kandy.validateSslCertificate(networkHttpClient);
             fail("Excepted CertificateValidationException");
         } catch (final CertificateValidationException e) {
             assertEquals("Could not get response from certificate endpoint", e.getMessage());
@@ -154,9 +154,9 @@ public class KandyTest {
 
     @Test
     public void testValidateSslCertificateSuccess() {
-        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com:8443");
+        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com:8443");
         when(networkHttpClient.makeRequest(request)).thenReturn(new Response("", 200));
 
-        Twilio.validateSslCertificate(networkHttpClient);
+        Kandy.validateSslCertificate(networkHttpClient);
     }
 }

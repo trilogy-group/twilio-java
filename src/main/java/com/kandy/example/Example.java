@@ -1,6 +1,6 @@
 package com.kandy.example;
 
-import com.kandy.Twilio;
+import com.kandy.Kandy;
 import com.kandy.rest.api.v2010.account.Call;
 import com.kandy.rest.api.v2010.account.CallCreator;
 import com.kandy.rest.api.v2010.account.IncomingPhoneNumber;
@@ -22,20 +22,20 @@ import java.util.Iterator;
 
 public class Example {
 
-    public static final String ACCOUNT_SID = System.getenv("TWILIO_ACCOUNT_SID");
-    public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
+    public static final String ACCOUNT_SID = System.getenv("KANDY_ACCOUNT_SID");
+    public static final String AUTH_TOKEN = System.getenv("KANDY_AUTH_TOKEN");
 
     public static final PhoneNumber PHONE_NUMBER = new PhoneNumber("+18885551234");
 
     /**
-     * Example Twilio usage.
+     * Example Kandy usage.
      *
      * @param args command line args
      * @throws TwiMLException if unable to generate TwiML
      */
     public static void main(String[] args) throws TwiMLException, URISyntaxException {
 
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Kandy.init(ACCOUNT_SID, AUTH_TOKEN);
 
         Iterable<Record> usage = Record.reader().read();
         for (Record record : usage) {
@@ -61,7 +61,7 @@ public class Example {
                 ACCOUNT_SID,
                 PHONE_NUMBER,
                 number.getPhoneNumber(),
-                URI.create("https://twilio.com")).create();
+                URI.create("https://kandy.com")).create();
         System.out.println(call.getSid());
 
         // Print all the messages
@@ -87,7 +87,7 @@ public class Example {
         // TwiML
         TwiML twiml = new VoiceResponse.Builder()
                 .say(new Say.Builder("Hello World!").build())
-                .play(new Play.Builder().url(new URI("https://api.twilio.com/cowbell.mp3")).loop(5).build())
+                .play(new Play.Builder().url(new URI("https://api.kandy.com/cowbell.mp3")).loop(5).build())
                 .build();
         System.out.println(twiml.toXml());
     }

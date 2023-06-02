@@ -32,9 +32,9 @@ public class KandyRestClient {
     private final HttpClient httpClient;
     @Getter
     private final List<String> userAgentExtensions;
-    private static final Logger logger = LoggerFactory.getLogger(TwilioRestClient.class);
+    private static final Logger logger = LoggerFactory.getLogger(KandyRestClient.class);
 
-    protected TwilioRestClient(Builder b) {
+    protected KandyRestClient(Builder b) {
         this.username = b.username;
         this.password = b.password;
         this.accountSid = b.accountSid;
@@ -52,7 +52,7 @@ public class KandyRestClient {
     }
 
     /**
-     * Make a request to Twilio.
+     * Make a request to Kandy.
      *
      * @param request request to make
      * @return Response object
@@ -94,7 +94,7 @@ public class KandyRestClient {
         private List<String> userAgentExtensions;
 
         /**
-         * Create a new Twilio Rest Client.
+         * Create a new Kandy Rest Client.
          *
          * @param username username to use
          * @param password password for the username
@@ -133,15 +133,15 @@ public class KandyRestClient {
         }
 
         /**
-         * Build new TwilioRestClient.
+         * Build new KandyRestClient.
          *
-         * @return TwilioRestClient instance
+         * @return KandyRestClient instance
          */
-        public TwilioRestClient build() {
+        public KandyRestClient build() {
             if (this.httpClient == null) {
                 this.httpClient = new NetworkHttpClient();
             }
-            return new TwilioRestClient(this);
+            return new KandyRestClient(this);
         }
     }
 
@@ -150,7 +150,7 @@ public class KandyRestClient {
      */
     public void logRequest(final Request request) {
         if (logger.isDebugEnabled()) {
-            logger.debug("-- BEGIN Twilio API Request --");
+            logger.debug("-- BEGIN Kandy API Request --");
             logger.debug("request method: " + request.getMethod());
             logger.debug("request URL: " + request.constructURL().toString());
             final Map<String, List<String>> queryParams = request.getQueryParams();
@@ -169,7 +169,7 @@ public class KandyRestClient {
                 }
             }
 
-            logger.debug("-- END Twilio API Request --");
+            logger.debug("-- END Kandy API Request --");
         }
     }
 

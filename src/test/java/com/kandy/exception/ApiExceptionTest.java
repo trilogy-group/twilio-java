@@ -49,7 +49,7 @@ public class ApiExceptionTest {
         final String errorJson = "{\n" +
                 "  \"code\": 20001,\n" +
                 "  \"message\": \"Bad request\",\n" +
-                "  \"more_info\": \"https://www.twilio.com/docs/errors/20001\",\n" +
+                "  \"more_info\": \"https://www.kandy.com/docs/errors/20001\",\n" +
                 "  \"status\": 400,\n" +
                 "  \"details\": {\n" +
                 "  \t\"foo\":\"bar\"\n" +
@@ -61,7 +61,7 @@ public class ApiExceptionTest {
         ApiException error = new ApiException(restException);
         assertEquals(20001, (int) error.getCode());
         assertEquals(400, (int) error.getStatusCode());
-        assertEquals("https://www.twilio.com/docs/errors/20001", error.getMoreInfo());
+        assertEquals("https://www.kandy.com/docs/errors/20001", error.getMoreInfo());
         assertEquals("Bad request", error.getMessage());
         assertEquals("details", Collections.singletonMap("foo", "bar"), error.getDetails());
     }

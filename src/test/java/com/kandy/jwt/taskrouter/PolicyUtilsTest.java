@@ -12,54 +12,54 @@ import java.util.List;
  */
 public class PolicyUtilsTest {
 
-    @Test
-    public void testDefaultWorkerPolicies() {
-        String workspaceSid = "WS123";
-        String workerSid = "WK123";
+        @Test
+        public void testDefaultWorkerPolicies() {
+                String workspaceSid = "WS123";
+                String workerSid = "WK123";
 
-        Policy activities = new Policy.Builder()
-                .url(UrlUtils.activities(workspaceSid))
-                .method(HttpMethod.GET)
-                .allowed(true)
-                .build();
+                Policy activities = new Policy.Builder()
+                                .url(UrlUtils.activities(workspaceSid))
+                                .method(HttpMethod.GET)
+                                .allowed(true)
+                                .build();
 
-        Policy tasks = new Policy.Builder()
-                .url(UrlUtils.allTasks(workspaceSid))
-                .method(HttpMethod.GET)
-                .allowed(true)
-                .build();
+                Policy tasks = new Policy.Builder()
+                                .url(UrlUtils.allTasks(workspaceSid))
+                                .method(HttpMethod.GET)
+                                .allowed(true)
+                                .build();
 
-        Policy reservations = new Policy.Builder()
-                .url(UrlUtils.allReservations(workspaceSid, workerSid))
-                .method(HttpMethod.GET)
-                .allowed(true)
-                .build();
+                Policy reservations = new Policy.Builder()
+                                .url(UrlUtils.allReservations(workspaceSid, workerSid))
+                                .method(HttpMethod.GET)
+                                .allowed(true)
+                                .build();
 
-        Policy workerFetch = new Policy.Builder()
-                .url(UrlUtils.worker(workspaceSid, workerSid))
-                .method(HttpMethod.GET)
-                .allowed(true)
-                .build();
+                Policy workerFetch = new Policy.Builder()
+                                .url(UrlUtils.worker(workspaceSid, workerSid))
+                                .method(HttpMethod.GET)
+                                .allowed(true)
+                                .build();
 
-        List<Policy> policies = Arrays.asList(activities, tasks, reservations, workerFetch);
-        Assert.assertEquals(
-                policies,
-                PolicyUtils.defaultWorkerPolicies(workspaceSid, workerSid));
-    }
+                List<Policy> policies = Arrays.asList(activities, tasks, reservations, workerFetch);
+                Assert.assertEquals(
+                                policies,
+                                PolicyUtils.defaultWorkerPolicies(workspaceSid, workerSid));
+        }
 
-    @Test
-    public void testDefaultEventBridgePolicies() {
-        String accountSid = "AC123";
-        String channelId = "CH123";
-        String url = String.join("/", "https://event-bridge.twilio.com/v1/wschannels", accountSid, channelId);
+        @Test
+        public void testDefaultEventBridgePolicies() {
+                String accountSid = "AC123";
+                String channelId = "CH123";
+                String url = String.join("/", "https://event-bridge.kandy.com/v1/wschannels", accountSid, channelId);
 
-        Policy get = new Policy.Builder().url(url).method(HttpMethod.GET).allowed(true).build();
-        Policy post = new Policy.Builder().url(url).method(HttpMethod.POST).allowed(true).build();
-        List<Policy> policies = Arrays.asList(get, post);
+                Policy get = new Policy.Builder().url(url).method(HttpMethod.GET).allowed(true).build();
+                Policy post = new Policy.Builder().url(url).method(HttpMethod.POST).allowed(true).build();
+                List<Policy> policies = Arrays.asList(get, post);
 
-        Assert.assertEquals(
-                policies,
-                PolicyUtils.defaultEventBridgePolicies(accountSid, channelId));
-    }
+                Assert.assertEquals(
+                                policies,
+                                PolicyUtils.defaultEventBridgePolicies(accountSid, channelId));
+        }
 
 }

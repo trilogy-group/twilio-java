@@ -4,7 +4,7 @@
 out/
 target/
 docs/
-src/main/java/com/twilio/Twilio.java.bak
+src/main/java/com/kandy/Kandy.java.bak
 secret.key
 pom.xml.releaseBackup
 release.properties

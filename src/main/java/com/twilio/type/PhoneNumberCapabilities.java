@@ -12,7 +12,8 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/api/rest/available-phone-numbers>Phone Number Docs</a>
+ * <a href=https://www.kandy.com/docs/api/rest/available-phone-numbers>Phone
+ * Number Docs</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -33,9 +34,9 @@ public class PhoneNumberCapabilities {
      */
     @JsonCreator
     public PhoneNumberCapabilities(@JsonProperty("MMS") final boolean mms,
-                                   @JsonProperty("SMS") final boolean sms,
-                                   @JsonProperty("voice") final boolean voice,
-                                   @JsonProperty("fax") final boolean fax) {
+            @JsonProperty("SMS") final boolean sms,
+            @JsonProperty("voice") final boolean voice,
+            @JsonProperty("fax") final boolean fax) {
         this.mms = mms;
         this.sms = sms;
         this.voice = voice;
@@ -70,9 +71,9 @@ public class PhoneNumberCapabilities {
 
         PhoneNumberCapabilities other = (PhoneNumberCapabilities) o;
         return Objects.equals(this.mms, other.mms) &&
-            Objects.equals(this.sms, other.sms) &&
-            Objects.equals(this.voice, other.voice) &&
-            Objects.equals(this.fax, other.fax);
+                Objects.equals(this.sms, other.sms) &&
+                Objects.equals(this.voice, other.voice) &&
+                Objects.equals(this.fax, other.fax);
     }
 
     @Override

@@ -114,7 +114,7 @@ public class NetworkHttpClientTest {
         Request request = new Request(HttpMethod.GET, "http://foo.com/hello");
 
         NetworkHttpClient clientSpy = spy(client);
-        doReturn(new Response("", TwilioRestClient.HTTP_STATUS_CODE_NO_CONTENT)).when(clientSpy).makeRequest(request);
+        doReturn(new Response("", KandyRestClient.HTTP_STATUS_CODE_NO_CONTENT)).when(clientSpy).makeRequest(request);
         clientSpy.reliableRequest(request);
         assertNotNull(clientSpy.getLastRequest());
         assertNotNull(clientSpy.getLastResponse());

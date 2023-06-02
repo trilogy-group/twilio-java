@@ -1,6 +1,6 @@
 package com.kandy.base;
 
-import com.kandy.http.TwilioRestClient;
+import com.kandy.http.KandyRestClient;
 import com.kandy.rest.api.v2010.account.Call;
 import com.kandy.rest.api.v2010.account.CallReader;
 import org.junit.Assert;
@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
 public class ReaderTest {
 
     @Mock
-    TwilioRestClient client;
+    KandyRestClient client;
 
     @Mock
     Page<Call> page;

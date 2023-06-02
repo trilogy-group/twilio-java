@@ -55,7 +55,7 @@ public class Request {
      * Create a new API request.
      *
      * @param method HTTP method
-     * @param domain Twilio domain
+     * @param domain Kandy domain
      * @param uri    uri of request
      */
     public Request(final HttpMethod method, final String domain, final String uri) {
@@ -66,7 +66,7 @@ public class Request {
      * Create a new API request.
      *
      * @param method HTTP Method
-     * @param domain Twilio domain
+     * @param domain Kandy domain
      * @param uri    uri of request
      * @param region region to make request
      */
@@ -76,7 +76,7 @@ public class Request {
             final String uri,
             final String region) {
         this.method = method;
-        this.url = "https://" + domain + ".twilio.com" + uri;
+        this.url = "https://" + domain + ".kandy.com" + uri;
         this.region = region;
         this.queryParams = new HashMap<>();
         this.postParams = new HashMap<>();
@@ -171,9 +171,9 @@ public class Request {
                 String targetRegion = region;
                 String targetEdge = edge;
 
-                if (pieces.length == 4) { // product.region.twilio.com
+                if (pieces.length == 4) { // product.region.kandy.com
                     targetRegion = targetRegion != null ? targetRegion : pieces[1];
-                } else if (pieces.length == 5) { // product.edge.region.twilio.com
+                } else if (pieces.length == 5) { // product.edge.region.kandy.com
                     targetEdge = targetEdge != null ? targetEdge : pieces[1];
                     targetRegion = targetRegion != null ? targetRegion : pieces[2];
                 }

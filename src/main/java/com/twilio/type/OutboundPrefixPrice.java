@@ -13,7 +13,9 @@ import java.util.Objects;
  *
  * <p>
  * For more information see:
- * <a href=https://www.twilio.com/docs/api/pricing/voice#outbound-prefix-price>Pricing docs</a>
+ * <a
+ * href=https://www.kandy.com/docs/api/pricing/voice#outbound-prefix-price>Pricing
+ * docs</a>
  * </p>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -35,9 +37,9 @@ public class OutboundPrefixPrice {
      */
     @JsonCreator
     public OutboundPrefixPrice(@JsonProperty("prefixes") final List<String> prefixes,
-                               @JsonProperty("friendly_name") final String friendlyName,
-                               @JsonProperty("base_price") final double basePrice,
-                               @JsonProperty("current_price") final double currentPrice) {
+            @JsonProperty("friendly_name") final String friendlyName,
+            @JsonProperty("base_price") final double basePrice,
+            @JsonProperty("current_price") final double currentPrice) {
         this.prefixes = prefixes;
         this.friendlyName = friendlyName;
         this.basePrice = basePrice;
@@ -71,9 +73,9 @@ public class OutboundPrefixPrice {
 
         OutboundPrefixPrice other = (OutboundPrefixPrice) o;
         return Objects.equals(this.basePrice, other.basePrice) &&
-            Objects.equals(this.currentPrice, other.currentPrice) &&
-            Objects.equals(this.prefixes, other.prefixes) &&
-            Objects.equals(this.friendlyName, other.friendlyName);
+                Objects.equals(this.currentPrice, other.currentPrice) &&
+                Objects.equals(this.prefixes, other.prefixes) &&
+                Objects.equals(this.friendlyName, other.friendlyName);
     }
 
     @Override

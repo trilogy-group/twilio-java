@@ -1,6 +1,6 @@
 package com.kandy.example.resource;
 
-import com.kandy.Twilio;
+import com.kandy.Kandy;
 import com.kandy.exception.ApiException;
 import com.kandy.rest.api.v2010.account.CallFetcher;
 import com.kandy.rest.api.v2010.account.Call;
@@ -12,7 +12,7 @@ public class CallFetcherExample {
 
     @SuppressWarnings("checkstyle:javadocmethod")
     public static void main(String[] args) {
-        Twilio.init("AC123", "AUTH TOKEN");
+        Kandy.init("AC123", "AUTH TOKEN");
 
         try {
 

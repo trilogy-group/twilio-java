@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
- * POJO representation of a Twilio ICE server.
+ * POJO representation of a Kandy ICE server.
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -15,7 +15,6 @@ public class IceServer {
     private final String username;
     private final String url;
     private final String urls;
-
 
     /**
      * Initialize an IceServer.
@@ -27,9 +26,9 @@ public class IceServer {
      */
     @JsonCreator
     public IceServer(@JsonProperty("credential") final String credential,
-                     @JsonProperty("username") final String username,
-                     @JsonProperty("url") final String url,
-                     @JsonProperty("urls") final String urls) {
+            @JsonProperty("username") final String username,
+            @JsonProperty("url") final String url,
+            @JsonProperty("urls") final String urls) {
         this.credential = credential;
         this.username = username;
         this.url = url;

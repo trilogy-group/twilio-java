@@ -19,7 +19,7 @@ public class ResponseTest {
     public void testGetContentInputStream() {
         String testValue = "Test";
         TestInputStream stream = new TestInputStream(testValue);
-        Response response = new Response(stream, TwilioRestClient.HTTP_STATUS_CODE_OK);
+        Response response = new Response(stream, KandyRestClient.HTTP_STATUS_CODE_OK);
 
         assertEquals(testValue, response.getContent());
     }
@@ -28,7 +28,7 @@ public class ResponseTest {
     public void testRepeatedCallGetContent() {
         String testValue = "TestRepeatedCalls";
         TestInputStream stream = new TestInputStream(testValue);
-        Response response = new Response(stream, TwilioRestClient.HTTP_STATUS_CODE_OK);
+        Response response = new Response(stream, KandyRestClient.HTTP_STATUS_CODE_OK);
 
         assertEquals(testValue, response.getContent());
         assertEquals(testValue, response.getContent());
@@ -36,13 +36,13 @@ public class ResponseTest {
 
     @Test
     public void testGetContentString() {
-        Response response = new Response("Test", TwilioRestClient.HTTP_STATUS_CODE_OK);
+        Response response = new Response("Test", KandyRestClient.HTTP_STATUS_CODE_OK);
         assertEquals("Test", response.getContent());
     }
 
     @Test
     public void testGetStream() {
-        Response response = new Response(stream, TwilioRestClient.HTTP_STATUS_CODE_OK);
+        Response response = new Response(stream, KandyRestClient.HTTP_STATUS_CODE_OK);
         assertEquals(stream, response.getStream());
     }
 }
