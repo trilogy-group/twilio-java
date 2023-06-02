@@ -87,7 +87,7 @@ public class Example {
         // TwiML
         TwiML twiml = new VoiceResponse.Builder()
                 .say(new Say.Builder("Hello World!").build())
-                .play(new Play.Builder().url(new URI("https://api.kandy.com/cowbell.mp3")).loop(5).build())
+                .play(new Play.Builder().url(new URI("https://api.twilio.com/cowbell.mp3")).loop(5).build())
                 .build();
         System.out.println(twiml.toXml());
     }

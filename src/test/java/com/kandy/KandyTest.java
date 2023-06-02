@@ -129,7 +129,7 @@ public class KandyTest {
 
     @Test
     public void testValidateSslCertificateError() {
-        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com:8443");
+        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com:8443");
         when(networkHttpClient.makeRequest(request)).thenReturn(new Response("", 500));
         try {
             Kandy.validateSslCertificate(networkHttpClient);
@@ -141,7 +141,7 @@ public class KandyTest {
 
     @Test
     public void testValidateSslCertificateException() {
-        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com:8443");
+        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com:8443");
         when(networkHttpClient.makeRequest(request)).thenThrow(new ApiException("No"));
 
         try {
@@ -154,7 +154,7 @@ public class KandyTest {
 
     @Test
     public void testValidateSslCertificateSuccess() {
-        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com:8443");
+        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com:8443");
         when(networkHttpClient.makeRequest(request)).thenReturn(new Response("", 200));
 
         Kandy.validateSslCertificate(networkHttpClient);

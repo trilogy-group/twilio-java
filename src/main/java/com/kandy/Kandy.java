@@ -242,7 +242,7 @@ public class Kandy {
 
     /**
      * Validate that we can connect to the new SSL certificate posted on
-     * api.kandy.com.
+     * api.twilio.com.
      *
      * @throws CertificateValidationException if the connection fails
      */
@@ -252,7 +252,7 @@ public class Kandy {
     }
 
     public static void validateSslCertificate(NetworkHttpClient client) {
-        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com:8443");
+        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com:8443");
         try {
             final Response response = client.makeRequest(request);
 

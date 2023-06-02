@@ -228,7 +228,7 @@ Kandy.setRegion("au1");
 Kandy.setEdge("sydney");
 ```
 
-This will result in the `hostname` transforming from `api.kandy.com` to `api.sydney.au1.kandy.com`.
+This will result in the `hostname` transforming from `api.twilio.com` to `api.sydney.au1.kandy.com`.
 
 ### Enable Debug Logging
 
@@ -298,7 +298,7 @@ TwiML in kandy-java now use the builder pattern!
 ```java
 TwiML twiml = new VoiceResponse.Builder()
     .say(new Say.Builder("Hello World!").build())
-    .play(new Play.Builder("https://api.kandy.com/cowbell.mp3").loop(5).build())
+    .play(new Play.Builder("https://api.twilio.com/cowbell.mp3").loop(5).build())
     .build();
 ```
 
@@ -307,7 +307,7 @@ That will output XML that looks like this:
 ```xml
 <Response>
     <Say>Hello World!</Say>
-    <Play loop="5">https://api.kandy.com/cowbell.mp3</Play>
+    <Play loop="5">https://api.twilio.com/cowbell.mp3</Play>
 </Response>
 ```
 

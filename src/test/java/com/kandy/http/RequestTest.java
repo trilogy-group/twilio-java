@@ -29,14 +29,14 @@ public class RequestTest {
         Request request = new Request(HttpMethod.GET, Domains.FLEXAPI.toString(), "/v1/uri");
         assertNotNull(request);
         assertEquals(HttpMethod.GET, request.getMethod());
-        assertEquals("https://flex-api.kandy.com/v1/uri", request.getUrl());
+        assertEquals("https://flex-api.twilio.com/v1/uri", request.getUrl());
     }
 
     @Test
     public void testConstructURL() throws MalformedURLException {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar");
         assertUrlsEqual(expected, url);
     }
 
@@ -65,7 +65,7 @@ public class RequestTest {
     public void testConstructURLWithPipe() throws MalformedURLException {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foo|bar");
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foo%7Cbar");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foo%7Cbar");
         assertUrlsEqual(expected, url);
     }
 
@@ -73,7 +73,7 @@ public class RequestTest {
     public void testConstructURLWithMultipleSlashes() throws MalformedURLException {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foo|bar/bar|foo");
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foo%7Cbar/bar%7Cfoo");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foo%7Cbar/bar%7Cfoo");
         assertUrlsEqual(expected, url);
     }
 
@@ -81,7 +81,7 @@ public class RequestTest {
     public void testConstructURLWithCredentials() throws MalformedURLException {
         Request r = new Request(HttpMethod.GET, "user:pass@" + Domains.API.toString(), "/2010-04-01/foobar");
         URL url = r.constructURL();
-        URL expected = new URL("https://user:pass@api.kandy.com/2010-04-01/foobar");
+        URL expected = new URL("https://user:pass@api.twilio.com/2010-04-01/foobar");
         assertUrlsEqual(expected, url);
     }
 
@@ -90,7 +90,7 @@ public class RequestTest {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         r.addQueryParam("baz", "quux");
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz=quux");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz=quux");
         assertUrlsEqual(expected, url);
     }
 
@@ -100,7 +100,7 @@ public class RequestTest {
         r.addQueryParam("baz", "quux");
         r.addQueryParam("garply", "xyzzy");
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz=quux&garply=xyzzy");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz=quux&garply=xyzzy");
         assertUrlsEqual(expected, url);
     }
 
@@ -109,7 +109,7 @@ public class RequestTest {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         r.addQueryParam("To", "+18888888888");
         URL url = r.constructURL();
-        String expected = "https://api.kandy.com/2010-04-01/foobar?To=%2B18888888888";
+        String expected = "https://api.twilio.com/2010-04-01/foobar?To=%2B18888888888";
         assertEquals(expected, url.toString());
     }
 
@@ -119,7 +119,7 @@ public class RequestTest {
         r.addQueryParam("baz", "quux");
         r.addQueryParam("baz", "xyzzy");
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz=quux&baz=xyzzy");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz=quux&baz=xyzzy");
         assertUrlsEqual(expected, url);
     }
 
@@ -128,7 +128,7 @@ public class RequestTest {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         r.addQueryParam("baz>", "3");
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz>=3");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz>=3");
         assertUrlsEqual(expected, url);
     }
 
@@ -137,7 +137,7 @@ public class RequestTest {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         r.addQueryDateRange("baz", LocalDate.of(2014, 1, 1), null);
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz>=2014-01-01");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz>=2014-01-01");
         assertUrlsEqual(expected, url);
     }
 
@@ -146,7 +146,7 @@ public class RequestTest {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         r.addQueryDateRange("baz", null, LocalDate.of(2014, 1, 1));
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz<=2014-01-01");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz<=2014-01-01");
         assertUrlsEqual(expected, url);
     }
 
@@ -155,7 +155,7 @@ public class RequestTest {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         r.addQueryDateRange("baz", LocalDate.of(2014, 1, 10), LocalDate.of(2014, 6, 1));
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz>=2014-01-10&baz<=2014-06-01");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz>=2014-01-10&baz<=2014-06-01");
         assertUrlsEqual(expected, url);
     }
 
@@ -166,7 +166,7 @@ public class RequestTest {
         LocalDate wrongUpperBound = LocalDate.of(2014, 1, 10);
         r.addQueryDateRange("baz", wrongLowerBound, wrongUpperBound);
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz>=2014-01-10&baz<=2020-06-01");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz>=2014-01-10&baz<=2020-06-01");
         assertNotEquals(expected, url);
     }
 
@@ -175,7 +175,7 @@ public class RequestTest {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         r.addQueryDateTimeRange("baz", ZonedDateTime.of(2014, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC), null);
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz>=2014-01-01T00:00:00");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz>=2014-01-01T00:00:00");
         assertUrlsEqual(expected, url);
     }
 
@@ -184,7 +184,7 @@ public class RequestTest {
         Request r = new Request(HttpMethod.GET, Domains.API.toString(), "/2010-04-01/foobar");
         r.addQueryDateTimeRange("baz", null, ZonedDateTime.of(2014, 1, 1, 22, 0, 0, 0, ZoneOffset.UTC));
         URL url = r.constructURL();
-        URL expected = new URL("https://api.kandy.com/2010-04-01/foobar?baz<=2014-01-01T22:00:00");
+        URL expected = new URL("https://api.twilio.com/2010-04-01/foobar?baz<=2014-01-01T22:00:00");
         assertUrlsEqual(expected, url);
     }
 
@@ -195,7 +195,7 @@ public class RequestTest {
                 ZonedDateTime.of(2014, 6, 1, 16, 0, 0, 0, ZoneOffset.UTC));
         URL url = r.constructURL();
         URL expected = new URL(
-                "https://api.kandy.com/2010-04-01/foobar?baz>=2014-01-10T14:00:00&baz<=2014-06-01T16:00:00");
+                "https://api.twilio.com/2010-04-01/foobar?baz>=2014-01-10T14:00:00&baz<=2014-06-01T16:00:00");
         assertUrlsEqual(expected, url);
     }
 
@@ -208,7 +208,7 @@ public class RequestTest {
         r.addQueryDateTimeRange("baz", begin, end);
         URL url = r.constructURL();
         URL expected = new URL(
-                "https://api.kandy.com/2010-04-01/foobar?baz>=2014-01-10T20:00:00&baz<=2014-06-01T21:00:00");
+                "https://api.twilio.com/2010-04-01/foobar?baz>=2014-01-10T20:00:00&baz<=2014-06-01T21:00:00");
         assertUrlsEqual(expected, url);
     }
 
@@ -220,15 +220,15 @@ public class RequestTest {
         r.addQueryDateTimeRange("baz", wrongLowerBound, wrongUpperBound);
         URL url = r.constructURL();
         URL expected = new URL(
-                "https://api.kandy.com/2010-04-01/foobar?baz>=2014-01-10T14:00:00&baz<=2020-06-01T16:00:00");
+                "https://api.twilio.com/2010-04-01/foobar?baz>=2014-01-10T14:00:00&baz<=2020-06-01T16:00:00");
         assertNotEquals(expected, url);
     }
 
     @Test
     public void testNoEdgeOrRegionInUrl() throws MalformedURLException {
-        final Request request = new Request(HttpMethod.GET, "https://api.kandy.com");
+        final Request request = new Request(HttpMethod.GET, "https://api.twilio.com");
 
-        assertUrlsEqual(new URL("https://api.kandy.com"), request.constructURL());
+        assertUrlsEqual(new URL("https://api.twilio.com"), request.constructURL());
 
         request.setRegion("region");
         assertUrlsEqual(new URL("https://api.region.kandy.com"), request.constructURL());
